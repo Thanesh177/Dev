@@ -887,7 +887,7 @@ h1 {
 
   .about-me {
     padding: 20px 40px;      /* reduce left/right padding */
-    font-size: 1.2rem;       /* scale down paragraph text */
+    font-size: 1rem;       /* scale down paragraph text */
     line-height: 1.4;
   }
 
@@ -1016,7 +1016,7 @@ h1 {
      and shrink their diameter to fit the narrower screen. */
 
   .fashion {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.2;
   position: relative;
   align-items: center;
@@ -1121,6 +1121,9 @@ h1 {
 /* ===== FORM STYLES ===== */
 
 #contact .form {
+  align-items: center;
+  justify-content: center;
+  width: 85%;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -1195,6 +1198,47 @@ h1 {
 }
 
 
+
+.items .contents{
+    position: absolute;
+    top: 17%;
+    left: 100px;
+    width: 300px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -50%);
+    font-family: system-ui;
+    display: none;
+}
+
+
+.slides .items:nth-child(2) .contents{
+    display: block;
+}
+
+
+.contents .name{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+}
+
+.contents .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.contents button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
 /*
 .icon{
     display: flex;
