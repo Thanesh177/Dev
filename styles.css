@@ -887,7 +887,7 @@ h1 {
 
   .about-me {
     padding: 20px 40px;      /* reduce left/right padding */
-    font-size: 1rem;       /* scale down paragraph text */
+    font-size: 0.9rem;       /* scale down paragraph text */
     line-height: 1.4;
   }
 
@@ -1016,7 +1016,7 @@ h1 {
      and shrink their diameter to fit the narrower screen. */
 
   .fashion {
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.2;
   position: relative;
   align-items: center;
@@ -1057,8 +1057,8 @@ h1 {
   }
 
   .slide {
-    width: 160px;
-    height: 160px;
+    width: 100px;
+    height: 100px;
     margin-right: 12px;
   }
 
@@ -1069,7 +1069,7 @@ h1 {
 
   .slider-buttons {
     gap: 100px;
-    margin-top: 12px;
+    margin-top: 7px;
   }
 
   .slider-btn {
@@ -1101,7 +1101,7 @@ h1 {
 #contact {
   width: 100%;
   height: 100vh;
-  padding: 60px 0px;
+  padding: 60px 25px;
   background-color: #f9f9f9;
 }
 
@@ -1199,10 +1199,12 @@ h1 {
 
 
 
+
+
 .items .contents{
     position: absolute;
     top: 17%;
-    left: 100px;
+    left: 50px;
     width: 300px;
     text-align: left;
     color: #eee;
