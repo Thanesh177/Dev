@@ -887,7 +887,7 @@ h1 {
 
   .about-me {
     padding: 20px 40px;      /* reduce left/right padding */
-    font-size: 0.9rem;       /* scale down paragraph text */
+    font-size: 1rem;       /* scale down paragraph text */
     line-height: 1.4;
   }
 
@@ -1012,7 +1012,7 @@ h1 {
      and shrink their diameter to fit the narrower screen. */
 
   .fashion {
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.2;
   position: relative;
   align-items: center;
@@ -1234,7 +1234,7 @@ h1 {
     border: none;
     cursor: pointer;
     opacity: 0;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
     animation: animate 1s ease-in-out 0.6s 1 forwards;
 }
 /*
