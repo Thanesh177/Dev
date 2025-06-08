@@ -112,7 +112,7 @@ h1 {
 
 .about-me{
   padding: 20px 200px;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.2;
   text-align: justify;
   opacity: 0.8;
@@ -591,7 +591,7 @@ h1 {
 
 /* Option 1: Absolutely position the <p> so it sits higher in the viewport */
 #section3 .culinary {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.2;
   display: flex;
   text-align: justify;
@@ -670,7 +670,7 @@ h1 {
 /*image-tranding*/
 /* ===== IMAGE TRACK (VERTICAL) ===== */
 .fashion {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   line-height: 1.2;
   position: relative;
   align-items: center;
@@ -952,7 +952,8 @@ h1 {
 /* Optional Responsive Adjustment */
 @media (max-width: 768px) {
   .slider-track img {
-    height: 300px;
+    height: 60%;
+    width: 40%;
   }
 }
 /* put this in your CSS file */
@@ -1109,7 +1110,9 @@ h1 {
     line-height: 52px;
   }
 
-
+.about-me{
+  font-size: 1.2rem;
+}
   /*----------------------------------------------------------------
     F) “HIRE ME!” BUTTON (GLOW EFFECT)
   ----------------------------------------------------------------*/
@@ -1125,6 +1128,10 @@ h1 {
     width: calc(100% + 3px);
     height: calc(100% + 3px);
     filter: blur(6px);
+  }
+  
+  #section1{
+    overflow: hidden;
   }
 
   /*----------------------------------------------------------------
@@ -1189,7 +1196,7 @@ h1 {
      and shrink their diameter to fit the narrower screen. */
 
   .fashion {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   position: relative;
   align-items: center;
