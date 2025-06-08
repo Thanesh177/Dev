@@ -1029,7 +1029,7 @@ h1 {
 
   .about-me {
     padding: 20px 40px;      /* reduce left/right padding */
-    font-size: 1rem;       /* scale down paragraph text */
+    font-size: 0.9rem;       /* scale down paragraph text */
     line-height: 1.4;
   }
 
@@ -1196,7 +1196,7 @@ h1 {
      and shrink their diameter to fit the narrower screen. */
 
   .fashion {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.2;
   position: relative;
   align-items: center;
@@ -1466,32 +1466,5 @@ h1 {
   .slider-nav button {
     font-size: 2rem;
     padding: 0.4rem 0.8rem;
-  }
-}
-
-/* Portrait phones */
-@media (max-width: 480px) {
-  /* Full-width slides, shorter height */
-  .track img {
-    width: 90vw;     /* nearly screen-wide */
-    height: 30vh;    /* keep them short */
-  }
-
-  /* Tighter spacing */
-  .track {
-    gap: 8px;
-  }
-
-  /* Hide nav buttons if you want a pure swipe experience */
-  .slider-nav {
-    display: none;
-  }
-}
-
-/* Extra small phones */
-@media (max-width: 360px) {
-  .track img {
-    width: 100vw;    /* truly full width */
-    height: 25vh;    /* very short slides */
   }
 }
