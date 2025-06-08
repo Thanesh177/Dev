@@ -1068,7 +1068,7 @@ h1 {
   .navbar nav {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.3rem;
   }
 
   .navbar nav a,
@@ -1201,19 +1201,7 @@ h1 {
   margin: 0 auto;          /* center the text block */
   }
 
-  #image-track {
-    flex-direction: column;
-    padding-left: 0;       /* no horizontal offset on mobile */
-    align-items: center;
-    gap: 4vmin;
-    height: auto;
-    overflow: hidden;
-  }
 
-  .image {
-    width: 50vmin;         /* smaller on mobile */
-    height: 55vmin;
-  }
 
   /*----------------------------------------------------------------
     I) SLIDER (CAROUSEL) IN #section4
@@ -1445,7 +1433,58 @@ h1 {
 }
 */
 
-#section5 {
-  display: none;
+
+
+
+/* === Mobile Adjustments for Slider Section === */
+
+/* Small tablets & large phones */
+  /* Shrink slide height, show more of each image */
+  .track img {
+    width: 55vw;      /* slightly smaller so you see a peek of next slide */
+    height: 30vh;     /* shorter slide height */
+  }
+
+  /* Tighter gap between slides */
+  .track {
+    gap: 36px;
+  }
+
+  /* If you have nav buttons */
+  .slider-nav {
+    gap: 2rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+  }
+  .slider-nav button {
+    font-size: 1.25rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
+
+/* Portrait phones */
+@media (max-width: 480px) {
+  /* Full-width slides, shorter height */
+  .track img {
+    width: 90vw;     /* nearly screen-wide */
+    height: 30vh;    /* keep them short */
+  }
+
+  /* Tighter spacing */
+  .track {
+    gap: 8px;
+  }
+
+  /* Hide nav buttons if you want a pure swipe experience */
+  .slider-nav {
+    display: none;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .track img {
+    width: 100vw;    /* truly full width */
+    height: 25vh;    /* very short slides */
+  }
 }
