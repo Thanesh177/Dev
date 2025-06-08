@@ -53,35 +53,35 @@ document.addEventListener("DOMContentLoaded", function () {
   let targetPercentage = 0;
   let currentPercentage = 0;
 
-  // When pointer (mouse or touch) presses down
+  // Pointer presses down
   const handleOnDown = (e) => {
-    track.dataset.mouseDownAt = e.clientY.toString(); // use clientY now
+    track.dataset.mouseDownAt = e.clientX.toString();
   };
 
-  // When pointer is released or leaves
+  // Pointer released or leaves
   const handleOnUp = () => {
     track.dataset.mouseDownAt = "0";
     track.dataset.prevPercentage = track.dataset.percentage;
   };
 
-  // When pointer moves (dragging)
+  // Pointer moves (dragging)
   const handleOnMove = (e) => {
     if (track.dataset.mouseDownAt === "0") return;
 
-    // Calculate vertical drag delta
-    const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientY;
-    const maxDelta = window.innerHeight / 2; // vertical half of viewport
+    // Horizontal drag delta
+    const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX;
+    const maxDelta = window.innerWidth / 2; // half viewport width
     const percentage = (mouseDelta / maxDelta) * -100;
     const nextPercentageUnconstrained =
       parseFloat(track.dataset.prevPercentage || "0") + percentage;
 
-    // Compute how tall the entire track is vs. viewport height
-    const trackHeight = track.scrollHeight;
-    const viewportHeight = window.innerHeight;
+    // Compute how wide the track is vs. viewport
+    const trackWidth = track.scrollWidth;
+    const viewportWidth = window.innerWidth;
     const maxScrollPercentage =
-      -((trackHeight - viewportHeight) / trackHeight) * 100;
+      -((trackWidth - viewportWidth) / trackWidth) * 100;
 
-    // Constrain between 0 (top) and maxScrollPercentage (negative)
+    // Constrain between 0 (leftmost) and maxScrollPercentage (negative)
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
       maxScrollPercentage
@@ -105,21 +105,20 @@ document.addEventListener("DOMContentLoaded", function () {
     handleOnMove(e.touches[0]);
   });
 
-  // Auto‐scroll setup (scrolls downward until loop)
+  // Auto-scroll setup (scrolls rightward until loop)
   let autoScrollActive = true;
-  const scrollSpeed = 0.1; // adjust for faster/slower vertical auto‐scroll
+  const scrollSpeed = 0.05; // adjust for faster/slower horizontal auto-scroll
 
   const autoScroll = () => {
     if (autoScrollActive) {
       targetPercentage -= scrollSpeed;
-      // Once fully scrolled, jump back up
       if (targetPercentage <= -100) {
         targetPercentage = 0;
       }
     }
   };
 
-  // Pause auto‐scroll on interaction
+  // Pause auto-scroll when interacting
   track.addEventListener("click", () => {
     autoScrollActive = false;
   });
@@ -127,17 +126,17 @@ document.addEventListener("DOMContentLoaded", function () {
     autoScrollActive = true;
   });
 
-  setInterval(autoScroll, 200);
+  setInterval(autoScroll, 16); // ~60fps
 
-  // Animate the translateY and parallax
+  // Animate translateX and horizontal parallax
   const updatePosition = () => {
-    // Smoothly ease toward targetPercentage
+    // Ease toward target
     currentPercentage += (targetPercentage - currentPercentage) * 0.1;
-    track.style.transform = `translateY(${currentPercentage}%)`;
+    track.style.transform = `translateX(${currentPercentage}%)`;
 
-    // Parallax: shift each image’s object‐position vertically
-    for (const image of track.getElementsByClassName("image")) {
-      image.style.objectPosition = `center ${100 + currentPercentage}%`;
+    // Parallax each image’s object-position horizontally
+    for (const img of track.getElementsByClassName("image")) {
+      img.style.objectPosition = `${100 + currentPercentage}% center`;
     }
 
     requestAnimationFrame(updatePosition);
@@ -145,6 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updatePosition();
 });
+
 
 //image slider
 document.addEventListener("DOMContentLoaded", () => {
@@ -247,3 +247,34 @@ prev.addEventListener('click', function(){
     let items = document.querySelectorAll('.items')
     document.querySelector('.slides').prepend(items[items.length - 1]) // here the length of items = 6
 })
+
+//scroll navigation button
+
+// put this in your script (after the DOM has loaded)
+const container = document.querySelector('.slider-container');
+const track = document.getElementById('track');
+const slides = track.children;
+const slideCount = slides.length / 2; // only original slides count
+let currentIndex = 0;
+
+// assume all slides are same width:
+const slideWidth = slides[0].getBoundingClientRect().width;
+
+document.getElementById('nextBtn').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slideCount;
+  container.scrollTo({
+    left: currentIndex * slideWidth,
+    behavior: 'smooth'
+  });
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+  container.scrollTo({
+    left: currentIndex * slideWidth,
+    behavior: 'smooth'
+  });
+});
+
+
+

@@ -10,9 +10,8 @@
   scroll-behavior: smooth; /* for <a href="#sectionX"> jumps */
 }
 
-body {
+html,body {
   font-family: 'Playfair Display', serif;
-  overflow: hidden;       /* prevent body from scrolling (we scroll .container) */
   background: #000;
   color: white;
 }
@@ -189,6 +188,7 @@ h1 {
   flex-direction: row;
   justify-content: right;
   background-color: transparent;
+  overflow: hidden;
   padding: 10px 20px;
   position: fixed;
   top: 0;
@@ -347,6 +347,7 @@ h1 {
     background: rgba(0, 0, 0, 0.1);
     
   }
+
 /*────────────────────────────────────────────────────────────
   dp Styles
 ────────────────────────────────────────────────────────────*/
@@ -681,37 +682,7 @@ h1 {
     opacity: 0.8;
 
 }
-#image-track {
-  display: flex;
-  flex-direction: row;   /* stack images top→down */
-  padding-left: 70%;
-  gap: 5vmin;
-  position: relative;
-  user-select: none;        /* prevent highlighting during drag */
-  width: 100%;
-  /* give it a fixed height (e.g. full‐viewport height) */
-}
 
-/* Each circular image stays the same size */
-.image {
-  width: 40vmin;
-  height: 40vmin;
-  object-fit: cover;
-  object-position: center;
-  filter: brightness(1);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-/* Hover and “active” states remain identical */
-.image:hover {
-  transform: scale(1.1) !important;
-  filter: brightness(1.1) !important;
-}
-
-.image.active {
-  transform: scale(1.2) !important;
-  filter: brightness(1.2) !important;
-}
 
 /* Image slider*/
 /* ===== SLIDER WRAPPER ===== */
@@ -945,6 +916,100 @@ h1 {
   z-index: 0;
 }
 
+#slider-section {
+  padding-top:100px;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+.slider-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: calc(200%); /* because we duplicated the images */
+  animation: scrollSlider 600s linear infinite;
+  gap: 30px;
+}
+
+.track img {
+  width: 50vw; /* full screen width */
+  height: 60vh; /* full screen height */
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Animation Keyframes */
+@keyframes scrollSlider {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); } /* Move by half since it's duplicated */
+}
+
+/* Optional Responsive Adjustment */
+@media (max-width: 768px) {
+  .slider-track img {
+    height: 300px;
+  }
+}
+/* put this in your CSS file */
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin-top: 1rem;
+}
+
+.slider-nav button {
+  background: none;
+  border: 1px transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#image-track {
+  display: flex;
+  flex-direction: row;   /* stack images top→down */
+  gap: 5vmin;
+  position: relative;
+  user-select: none;        /* prevent highlighting during drag */
+  width: 100%;
+  padding: 20px 0; /* horizontal padding for spacing */
+  /* give it a fixed height (e.g. full‐viewport height) */
+}
+
+/* Each circular image stays the same size */
+.image {
+  width: 35vmin;
+  height: 25vmin;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover and “active” states remain identical */
+.image:hover {
+  transform: scale(1.1) !important;
+  filter: brightness(1.1) !important;
+}
+
+.image.active {
+  transform: scale(1.2) !important;
+  filter: brightness(1.2) !important;
+}
+
+/* Keyframes */
+@keyframes scrollSlider {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-400%); } /* Adjust based on number of images */
+}
 
 /*────────────────────────────────────────────────────────────
   1) Mobile (≤ 768px) – Tablet & Large Phones
@@ -992,7 +1057,7 @@ h1 {
     C) NAVBAR / DROPDOWN
   ----------------------------------------------------------------*/
   .navbar {
-    display: none;
+    display: flex;
     padding: 8px 12px;
     backdrop-filter: blur(50px); /* slightly reduce blur intensity */
   }

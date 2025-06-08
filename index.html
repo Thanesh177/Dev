@@ -18,13 +18,13 @@
   </div>
 
   <nav>
-    <a href="#section1">Home</a>
-    <a href="#section2">About Us</a>
+    <a href="index.html">Home</a>
+    <a href="image.html">Gallery</a>
 
     <!-- Dropdown-New (clickable) -->
     <div class="dropdown-new" id="photographyDropdown">
       <button class="dropbtn-new" id="photographyButton">
-        Photography
+        Genres
         <span class="arrow-new"></span>
       </button>
       <div class="dropdown-content-new">
@@ -38,7 +38,7 @@
     <button class="btn" onclick="location.href='#contact'">
       Hire Me!
     </button>  
-</nav>
+  </nav>
 </div>
 
   <div class="container">
@@ -218,6 +218,34 @@
 
 <div class="section" id="section5">
   <div class="content">
+    <section id="slider-section">
+      <div class="slider-container">
+        <div class="track" id="track">
+          <!-- Original Images -->
+          <img src="App_development.png" alt="Image 1" />
+          <img src="App_development.png" alt="Image 2" />
+          <img src="App_development.png" alt="Image 3" />
+          <img src="App_development.png" alt="Image 4" />
+
+          <!-- Duplicate Images for Infinite Loop -->
+          <img src="img1.jpg" alt="Image 5" />
+          <img src="img2.jpg" alt="Image 6" />
+          <img src="img3.jpg" alt="Image 7" />
+          <img src="img4.jpg" alt="Image 8" />
+        </div>
+      </div>
+
+      <!-- navigation buttons -->
+      <div class="slider-nav">
+        <button id="prevBtn" aria-label="Previous slide">&larr; </button>
+        <button id="nextBtn" aria-label="Next slide"> &rarr;</button>
+      </div>
+    </section>
+
+
+
+
+
         <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
           <img class="image" src="java.avif" draggable="false"/>
           <img class="image" src="python.jpg" draggable="false"/>
@@ -312,6 +340,7 @@
   </div>
 
 <script src="action.js"></script>
+
 <script>
   // Wait until the DOM is fully loaded:
   document.addEventListener('DOMContentLoaded', function() {
