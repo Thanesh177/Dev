@@ -65,16 +65,16 @@ body {
   background: linear-gradient(135deg, #060303, #031e24);
 }
 .section:nth-child(2) {
-  background: linear-gradient(135deg, #49345f, #040105);
+  background: linear-gradient(135deg, #281b37, #040105);
 }
 .section:nth-child(3) {
-  background: linear-gradient(135deg, #010001, #4c0b41);
+  background: linear-gradient(135deg, #040007, #2a0143);
 }
 .section:nth-child(4) {
   background: linear-gradient(135deg, #221031, #010002);
 }
 .section:nth-child(5) {
-  background: linear-gradient(135deg, #21122e, #1b042b);
+  background: linear-gradient(135deg, #070708, #222121);
 }
 .section:nth-child(6) {
   background: linear-gradient(135deg, #21122e, #1b042b);
@@ -84,6 +84,7 @@ body {
   Section Content (initially hidden, then fade in when active)
 ────────────────────────────────────────────────────────────*/
 .content {
+
   width: 100%;
   z-index: 2;
   position: relative;
@@ -568,17 +569,23 @@ h1 {
 /* Make sure #section3 can serve as a positioning context */
 #section3 {
     /* Give the section some vertical space so its child can show */
-  display: flex;      /* so that .content’s children aren’t collapsed */
+  display: flex;    
+  flex-direction: row;
   overflow: hidden;
 }
 
+.drop{
+  display: flex;
+  flex-direction: row;
+
+}
 
 #section3 h1{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  font-size: 3rem;        
-  color: rgb(202, 19, 19);
+  font-size: 3rem;     
+  color: rgb(226, 223, 223);
 }
 
 /* Option 1: Absolutely position the <p> so it sits higher in the viewport */
@@ -587,14 +594,77 @@ h1 {
   line-height: 1.2;
   display: flex;
   text-align: justify;
-  margin: 0;
-  padding-left: 200px;
-  padding-top: 5400px;
-  max-width: 1000px;
+  max-width: 900px;
+  padding: 100px 80px;
   font-size: 1.5rem;
     opacity: 0.8;
 
 }
+
+
+#section3 .cards-container input[type="radio"] {
+  display: none;
+}
+
+#section3 .cards-container{
+  padding: 100px 0;
+}
+/* 2) Base card styles stay the same */
+#section3 .cards-container .card {
+  height: 90px;
+  width: 600px;
+  margin:   0 70px;
+  border-radius: 2rem;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  transition: height .6s cubic-bezier(.28,-0.03,0,.99),
+              box-shadow .3s ease,
+              opacity .3s ease;
+  box-shadow: 0 10px 30px -5px rgba(190, 77, 219, 0.8);
+  opacity: 1;
+}
+
+/* 3) Hide description by default */
+#section3 .card .description {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity .3s ease .3s,
+              transform .3s ease .3s;
+}
+
+/* 4) Expand on hover */
+#section3 .cards-container .card:hover {
+  height: 300px;
+  box-shadow: 0 15px 40px -5px rgba(121, 40, 40, 0.9);
+}
+
+/* 5) Reveal description on the hovered card */
+#section3 .cards-container .card:hover .description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 6) Dim the non-hovered cards to draw focus */
+#section3 .cards-container .card:not(:hover) {
+  opacity: 0.4;
+}
+
+/* 7) (Optional) Smooth out text and icon colors, keep them white */
+#section3 .card .row,
+#section3 .card .icon,
+#section3 .card h4,
+#section3 .card p {
+  color: #fff;
+}
+
+/* 8) Background images for each card (unchanged) */
+#section3 label[for="c1"] { background-image: url('dp.jpg'); }
+#section3 label[for="c2"] { background-image: url('css_html+javascript.jpg'); }
+#section3 label[for="c3"] { background-image: url('./img3.jpeg'); }
+#section3 label[for="c4"] { background-image: url('./img4.jpeg'); }
 
 /*image-tranding*/
 /* ===== IMAGE TRACK (VERTICAL) ===== */
@@ -613,20 +683,19 @@ h1 {
 }
 #image-track {
   display: flex;
-  flex-direction: column;   /* stack images top→down */
+  flex-direction: row;   /* stack images top→down */
   padding-left: 70%;
   gap: 5vmin;
   position: relative;
   user-select: none;        /* prevent highlighting during drag */
-  overflow: hidden;
   width: 100%;
   /* give it a fixed height (e.g. full‐viewport height) */
 }
 
 /* Each circular image stays the same size */
 .image {
-  width: 30vmin;
-  height: 30vmin;
+  width: 40vmin;
+  height: 40vmin;
   object-fit: cover;
   object-position: center;
   filter: brightness(1);
@@ -869,6 +938,13 @@ h1 {
     color: #fff;
 }
 
+/* 1) Remove the hidden radios (if still present) */
+
+#section5 {
+  overflow: hidden;
+  z-index: 0;
+}
+
 
 /*────────────────────────────────────────────────────────────
   1) Mobile (≤ 768px) – Tablet & Large Phones
@@ -991,7 +1067,6 @@ h1 {
   #section3 {
     display: flex;
     flex-direction: column;
-    padding: 60px 20px;
     justify-content: center;
     overflow: hidden;
   }
@@ -1005,6 +1080,40 @@ h1 {
     display: none; /* hide the paragraph on mobile */
   }
 
+  /* Your existing styles above remain unchanged */
+
+@media screen and (max-width: 768px) {
+  #section3 .cards-container {
+    display: flex;
+    padding: 0px 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #section3 .cards-container .card {
+    width: 90%;
+    height: 80px;
+    flex-direction: column;
+  }
+
+  #section3 .cards-container .card:hover {
+    height: 250px;
+  }
+
+  #section3 .card .description {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  #section3 .card h4 {
+    font-size: 1.2rem;
+  }
+
+  #section3 .card p {
+    font-size: 0.95rem;
+  }
+}
   /*----------------------------------------------------------------
     H) IMAGE TRACK (VERTICAL) IN #section2 OR .fashion
   ----------------------------------------------------------------*/
@@ -1267,4 +1376,8 @@ h1 {
   box-shadow: 0 0 40px rgb(94, 118, 176);
 }
 */
+
+#section5 {
+  display: none;
+}
 }
