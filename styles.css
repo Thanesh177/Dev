@@ -189,7 +189,6 @@ h1 {
   flex-direction: row;
   justify-content: right;
   background-color: transparent;
-  overflow: hidden;
   padding: 10px 20px;
   position: fixed;
   top: 0;
