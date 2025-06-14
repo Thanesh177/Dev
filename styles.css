@@ -1169,7 +1169,7 @@ h1 {
 #section2 .liver p{
   display: flex;
   padding: null;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.2;
   text-align: justify;
   align-items: center;
@@ -1360,7 +1360,6 @@ h1 {
   text-align: justify;
   opacity: 0.8;
   padding: 20px;
-  max-width: 90%;
   margin: 0 auto;          /* center the text block */
   }
 
@@ -1369,7 +1368,7 @@ h1 {
   /* Stack section4 vertically */
   #section4 {
     flex-direction: column;
-    padding: 50px 20px;
+    padding: 0px 10px;
   }
 
   /* Reposition & simplify the rotated text */
@@ -1392,15 +1391,18 @@ align-items: center;
 
   /* Text items full width & smaller type */
   .text-item {
-    padding: 20px;
-    font-size: 0.7rem;
+    padding: 10px;
+    font-size: 0.8rem;
     max-width: 100%;
   }
 
   /* Shrink the “stage” height */
   .image-container {
     width: 100%;
-    height: 250px;
+    height: 140px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
 
   /* Override absolute stacking so the active slide simply shows */
@@ -1522,7 +1524,10 @@ align-items: center;
 }
 
 #contact p{
+  width: 100%;
   font-size: 0.9rem;
+  position: relative;
+  left: 0;
 }
 
 /* ===== FORM STYLES ===== */
@@ -1536,7 +1541,7 @@ align-items: center;
 
 #contact .form .input,
 #contact .form textarea {
-  width: 80%;
+  width: 100%;
   padding: 10px 10px;
   font-size: 0.9rem;
   border: 1px solid #ccc;
@@ -1576,7 +1581,7 @@ align-items: center;
 
 #contact .icon {
   gap: 10px;
-  display: flex;
+  display: none;
   justify-content: center;
   gap: 24px;
 }
