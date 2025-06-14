@@ -110,9 +110,12 @@ h1 {
   margin-bottom: 10px;
 }
 
+.about-me{
+  padding: 20px 200px;
+}
 .liver p{
   position: relative;
-  padding: 50px 70px;
+  padding: 50px 50px;
   font-size: 1.5rem;
   line-height: 1.2;
   text-align: justify;
@@ -120,10 +123,11 @@ h1 {
   border: 0.2rem solid white;
 }
 
+
 #section2 .liver {
   position: relative;
   width: 100%;
-  padding: 0px 90px; /* padding for text */
+  padding: 0px 30px; /* padding for text */
   /* set an explicit height, or let your image define it */
 }
 
