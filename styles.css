@@ -703,21 +703,28 @@ h1 {
 /* 3) Hide description by default */
 #section3 .card .description {
   opacity: 0;
-  transform: translateX(30px);
-  transition: opacity .3s ease .3s,
-              transform .3s ease .3s;
+  transform: translateX(60%) skewX(-15deg);
+  transition: 
+    transform 0.6s cubic-bezier(.25,.8,.25,1), /* springy */
+    opacity   0.4s ease-out 0.2s;              /* delayed fade-in */
+}
+
+#section3 .card .description {
+  background: rgba(0,0,0,0.5);
+  padding: 1rem;
+  border-top-left-radius: 0.5rem;
 }
 
 /* 4) Expand on hover */
 #section3 .cards-container .card:hover {
-  width: 600px;
+  width: 50%;
   box-shadow: 0 15px 40px -5px rgba(121, 40, 40, 0.9);
 }
 
 /* 5) Reveal description on the hovered card */
 #section3 .cards-container .card:hover .description {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) skewX(0deg);
 }
 
 /* 6) Dim the non-hovered cards to draw focus */
@@ -1173,19 +1180,24 @@ h1 {
   #section2 img{
     display: none;
   }
-
+#section2{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
 
 #section2 .liver p{
+  overflow: hidden;
   display: flex;
-  padding: null;
   font-size: 1rem;
   line-height: 1.2;
   text-align: justify;
   align-items: center;
   opacity: 0.8;
   border: 0.5px solid #ccc;
-  width: 100%;
-  padding: 20px 20px;
+      padding: 20px 20px;
+  border-radius: 10px;  
+  
 }
 
 #section2 liver{
