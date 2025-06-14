@@ -276,5 +276,67 @@ document.getElementById('prevBtn').addEventListener('click', () => {
   });
 });
 
+// Image slider with text and dots
+document.addEventListener("DOMContentLoaded", () => {
+    const images = document.querySelectorAll("#nextSection .pic");
+    const textElements = document.querySelectorAll("#nextSection .text-item");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const dotContainer = document.getElementById("dotContainer");
 
+    let currentIndex = 0;
+    const TRANSITION_DURATION = 800;
 
+    // Generate dots
+    images.forEach((_, i) => {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        if (i === 0) dot.classList.add("active");
+        dotContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll(".dot");
+
+    function updateDots(index) {
+        dots.forEach((dot, i) => {
+            dot.classList.toggle("active", i === index);
+        });
+    }
+
+    function updateDisplay(index, direction) {
+        images.forEach((img, i) => {
+            img.style.zIndex = i === index ? "2" : "1";
+            img.style.transition = `transform ${TRANSITION_DURATION}ms ease, opacity ${TRANSITION_DURATION}ms ease`;
+            img.style.opacity = i === index ? "1" : "0";
+            img.style.transform = i === index
+                ? "translateX(0)"
+                : `translateX(${direction === "next" ? "100%" : "-100%"})`;
+        });
+
+        textElements.forEach((text, i) => {
+            text.classList.toggle("active", i === index);
+            text.style.display = i === index ? "block" : "none";
+        });
+
+        updateDots(index);
+    }
+
+    function goToNext() {
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+            updateDisplay(currentIndex, "next");
+        }
+    }
+
+    function goToPrev() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateDisplay(currentIndex, "prev");
+        }
+    }
+
+    prevBtn.addEventListener("click", goToPrev);
+    nextBtn.addEventListener("click", goToNext);
+
+    updateDisplay(currentIndex, "next");
+});

@@ -62,7 +62,7 @@ html,body {
 
 /* Four different gradient backgrounds */
 .section:nth-child(1) {
-  background: linear-gradient(135deg, #060303, #031e24);
+  background: linear-gradient(135deg, #040603, #031e24);
 }
 .section:nth-child(2) {
   background: linear-gradient(135deg, #281b37, #040105);
@@ -110,12 +110,32 @@ h1 {
   margin-bottom: 10px;
 }
 
-.about-me{
-  padding: 20px 200px;
+.liver p{
+  position: relative;
+  padding: 50px 50px;
   font-size: 1.5rem;
   line-height: 1.2;
   text-align: justify;
   opacity: 0.8;
+  border: 0.2rem solid white;
+}
+
+#section2 .liver {
+  position: relative;
+  width: 100%;
+  padding: 0px 200px; /* padding for text */
+  /* set an explicit height, or let your image define it */
+  height: 400px;               
+}
+
+#section2 .about-img {
+  position: absolute;
+  padding-bottom: 80px;
+  left: 8%;
+  width: 15%;                  /* adjust as needed */
+  height: 30%;                /* fill the container height */
+  object-fit: cover;           /* crop/scale nicely */
+  z-index: 1;                  /* beneath the text */
 }
 
 /*────────────────────────────────────────────────────────────
@@ -435,13 +455,50 @@ h1 {
 /* ===== CONTACT SECTION STYLES ===== */
 
 #contact {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  padding: 60px 20px;
+  height: 95vh;
   background-color: #f9f9f9;
 }
 
-#contact .content {
+#contact img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  left: 6%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ――― Base paragraph rules ――― */
+#contact p {
+  /* 1. Typographic rhythm */
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: clamp(1rem, 2vw, 1rem);  /* scales between 16px and 20px */
+  line-height: 1.6;                       /* good vertical white-space */
   
+  /* 2. Readability */
+  color: #ffffff;                            /* dark gray on white bg */
+  text-align: justify;                    
+  hyphens: auto;                          /* break long words nicely */
+
+  /* 3. Measure (line length) */
+  max-width: 60ch;                        /* ~60 characters per line */
+
+  /* 4. (Optional) subtle text-shadow for overlay text */
+  /* text-shadow: 0 1px 2px rgba(0,0,0,0.2); */
+}
+
+/* ――― Utility variant for light text over dark/colored bg ――― */
+#contact p.light {
+  color: #f8f8f8;                         /* off-white */
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+
+#contact .content {
   width: 440px;
   margin: 0 auto;
   text-align: center;
@@ -504,11 +561,13 @@ h1 {
 /* ===== ICON LINKS STYLES ===== */
 
 #contact .icon {
+  position: relative;
   gap: 16px;
   margin-top: 32px;
   display: flex;
   justify-content: center;
   gap: 24px;
+  bottom: 0;
 }
 
 #contact .icon a {
@@ -582,7 +641,7 @@ h1 {
 }
 
 #section3 h1{
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   font-size: 3rem;     
@@ -591,9 +650,9 @@ h1 {
 
 /* Option 1: Absolutely position the <p> so it sits higher in the viewport */
 #section3 .culinary {
+  display: none;
   font-size: 1.5rem;
   line-height: 1.2;
-  display: flex;
   text-align: justify;
   max-width: 900px;
   padding: 100px 80px;
@@ -606,22 +665,31 @@ h1 {
 #section3 .cards-container input[type="radio"] {
   display: none;
 }
-
+.wrapper{
+  display: flex;
+  padding: 0 100px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
 #section3 .cards-container{
-  padding: 100px 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 /* 2) Base card styles stay the same */
 #section3 .cards-container .card {
-  height: 90px;
-  width: 600px;
-  margin:   0 70px;
-  border-radius: 2rem;
+  height: 500px;
+  width: 150px;
+  margin:   0 0px;
+  border-radius: 1rem;
   background-size: cover;
   background-position: center;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  transition: height .6s cubic-bezier(.28,-0.03,0,.99),
+  transition: width .6s cubic-bezier(.28,-0.03,0,.99),
               box-shadow .3s ease,
               opacity .3s ease;
   box-shadow: 0 10px 30px -5px rgba(190, 77, 219, 0.8);
@@ -631,21 +699,21 @@ h1 {
 /* 3) Hide description by default */
 #section3 .card .description {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateX(30px);
   transition: opacity .3s ease .3s,
               transform .3s ease .3s;
 }
 
 /* 4) Expand on hover */
 #section3 .cards-container .card:hover {
-  height: 300px;
+  width: 600px;
   box-shadow: 0 15px 40px -5px rgba(121, 40, 40, 0.9);
 }
 
 /* 5) Reveal description on the hovered card */
 #section3 .cards-container .card:hover .description {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 /* 6) Dim the non-hovered cards to draw focus */
@@ -663,9 +731,10 @@ h1 {
 
 /* 8) Background images for each card (unchanged) */
 #section3 label[for="c1"] { background-image: url('dp.jpg'); }
-#section3 label[for="c2"] { background-image: url('css_html+javascript.jpg'); }
-#section3 label[for="c3"] { background-image: url('./img3.jpeg'); }
-#section3 label[for="c4"] { background-image: url('./img4.jpeg'); }
+#section3 label[for="c2"] { background-image: url('img-1.jpg'); }
+#section3 label[for="c3"] { background-image: url('img-3.jpg'); }
+#section3 label[for="c4"] { background-image: url('img-4.jpg'); }
+#section3 label[for="c5"] { background-image: url('img-6.jpg'); }
 
 /*image-tranding*/
 /* ===== IMAGE TRACK (VERTICAL) ===== */
@@ -682,97 +751,161 @@ h1 {
     opacity: 0.8;
 
 }
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 
 /* Image slider*/
 /* ===== SLIDER WRAPPER ===== */
 #section4 {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  padding: 100px 100px;
 }
-/* ===== SLIDER WRAPPER ===== */
-.slider {
+
+.verti {
+  position: absolute;
+  padding: 10px 10px;
+  right: 8%;
+  top: 7%;
+  z-index: 14;
+  font-weight: bold;
+  border: #ffffff solid 1px;
+  /* cursive styling */
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;              /* adjust size as needed */
+  color: #fafafa;               /* light text */
+  text-shadow: 
+    1px 1px 2px rgba(0,0,0,0.3),
+    2px 2px 4px rgba(0,0,0,0.2);
+  letter-spacing: 0.05em;       /* subtle spacing */
+  line-height: 1.1;
+
+    /* rotate 90° */
+  transform: rotate(90deg);
+  /* adjust the pivot point if needed */
+  transform-origin: top left;
+}
+
+/* 1) Make the containers positioning context */
+#nextSection .container {
+  display: flex;
+  
+  height: 500px;          /* or whatever height you want */
+}
+/* 1) Make the image‐side a positioned box that fills half the carousel */
+.image-container {
+  position: relative;
   width: 100%;
-  max-width: 800px;    /* adjust as needed */
-  margin: 40px auto;   /* center on page with vertical margin */
-  display: flex;
-  flex-direction: column; /* stack window + buttons vertically */
-  align-items: center;
+  height: 500px;       /* or whatever height you want your slides to be */
 }
 
-/* ===== VISIBLE WINDOW ===== */
-.slider-window {
-  width: 100%;
-  overflow: hidden;   /* allow the scaled-up slide to show */
-  padding: 80px 40px;     /* optional “breathing room” on sides */
-}
-
-/* ===== TRACK (FLEX ROW) ===== */
-.slider-track {
-  display: flex;
-  align-items: center;
-  transition: transform 0.5s ease;
-  will-change: transform;
-}
-
-/* ===== INDIVIDUAL SLIDE ===== */
-.slide {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 8px;
-  margin-right: 16px;
-  flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(115, 74, 74, 0.15);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  filter: brightness(0.7);
-}
-.slide:last-child {
-  margin-right: 0;
-}
-/* Active (centered) slide */
-.slide.active {
-  transform: scale(1.6);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  z-index: 1;
-  filter: brightness(1);
-
-}
-
-/* ===== BUTTONS CONTAINER (below the window) ===== */
-.slider-buttons {
-  margin-top: 16px;     /* space between window and buttons */
-  display: flex;
-  gap: 26px;            /* space between Prev & Next */
-}
-
-/* ===== BUTTONS ===== */
-.slider-btn {
-  background-color: rgba(0, 0, 0, 0.5);
+.text-item{
   padding: 50px;
-  border: none;
-  color: #fff;
-  font-size: 2rem;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: clamp(1.2rem, 2vw, 1.2rem);  /* scales between 16px and 20px */
+  line-height: 1.6;                       /* good vertical white-space */
+  
+  /* 2. Readability */
+  color: #ffffff;                            /* dark gray on white bg */
+  text-align: justify;                    
+  hyphens: auto;                          /* break long words nicely */
+
+  /* 3. Measure (line length) */
+  max-width: 60ch;  
 }
 
-.slider-btn:hover {
-  background-color: rgba(45, 80, 149, 0.8);
-  transform: scale(0.5);
+/* 2) Stack the .pic wrappers absolutely, but full‐size */
+#nextSection .pic {
+  position: absolute;
+  
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* start off invisible and off‐screen */
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
-.slider-btn:disabled {
-  opacity: 0.4;
-  cursor: default;
+/* 3) Active slide is centered and visible */
+#nextSection .pic.active {
+  opacity: 1;
+  transform: translateX(0);
 }
+
+/* 4) Make the actual <img> fill its wrapper and preserve aspect */
+#nextSection .pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* or “contain” if you’d rather see the whole image */
+  display: block;
+  padding: 0px 60px;
+}
+
+
+#nextSection .text-item.active {
+  display: block;
+  max-width: 2000px;
+}
+
+/* Shared Button Styles */
+#nextSection button {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fdfdfd;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(82, 77, 77, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: 40px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    width: 20vw;
+    font-size: 15px;
+    padding: 74px 0;
+    white-space: nowrap;
+    bottom: 20px;
+}
+
+/* Hover/Active Effects */
+#nextSection button:hover {
+    transform: scale(1.08);
+
+}
+
+#nextSection button:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+.dot-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 9;
+}
+
+.dot-container .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot-container .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.3);
+}
+
+
 
 
 /* ===== slider STYLES ===== */
@@ -914,6 +1047,7 @@ h1 {
 #section5 {
   overflow: hidden;
   z-index: 0;
+  padding: 10px 0px;
 }
 
 #slider-section {
@@ -981,7 +1115,7 @@ h1 {
   position: relative;
   user-select: none;        /* prevent highlighting during drag */
   width: 100%;
-  padding: 20px 0; /* horizontal padding for spacing */
+  padding: 10px 10px; /* horizontal padding for spacing */
   /* give it a fixed height (e.g. full‐viewport height) */
 }
 
@@ -1027,10 +1161,15 @@ h1 {
     font-size: 2.25rem;       /* shrink large headings */
   }
 
-  .about-me {
+  #section2 .about-me {
     padding: 20px 40px;      /* reduce left/right padding */
     font-size: 0.9rem;       /* scale down paragraph text */
     line-height: 1.4;
+    border: none;
+  }
+
+  #section2 img{
+    display: none;
   }
 
   /*----------------------------------------------------------------
@@ -1110,9 +1249,6 @@ h1 {
     line-height: 52px;
   }
 
-.about-me{
-  font-size: 1.2rem;
-}
   /*----------------------------------------------------------------
     F) “HIRE ME!” BUTTON (GLOW EFFECT)
   ----------------------------------------------------------------*/
@@ -1160,20 +1296,24 @@ h1 {
 @media screen and (max-width: 768px) {
   #section3 .cards-container {
     display: flex;
-    padding: 0px 20px;
+    padding: 0px 10px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
   #section3 .cards-container .card {
-    width: 90%;
+    width: 100%;
     height: 80px;
+      transition: height .6s cubic-bezier(.28,-0.03,0,.99),
+              box-shadow .3s ease,
+              opacity .3s ease;
     flex-direction: column;
   }
 
   #section3 .cards-container .card:hover {
     height: 250px;
+    width: 100%;
   }
 
   #section3 .card .description {
@@ -1209,6 +1349,83 @@ h1 {
   }
 
 
+/* ─── Mobile Styles (≤768px) ─── */
+@media (max-width: 768px) {
+  /* Stack section4 vertically */
+  #section4 {
+    flex-direction: column;
+    padding: 50px 20px;
+  }
+
+  /* Reposition & simplify the rotated text */
+  .verti {
+    width: auto;
+    justify-content: center;
+align-items: center;
+    top: auto;
+    bottom: 0%;
+    transform: rotate(0deg);       /* no rotation on mobile */
+    font-size: 1.2rem;
+    padding: 5px;
+  }
+
+  /* Make the carousel container stack */
+  #nextSection .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Text items full width & smaller type */
+  .text-item {
+    padding: 20px;
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  /* Shrink the “stage” height */
+  .image-container {
+    width: 100%;
+    height: 250px;
+  }
+
+  /* Override absolute stacking so the active slide simply shows */
+  #nextSection .pic{
+    opacity: 0;
+  }
+  #nextSection .pic.active {
+    position: relative;
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Ensure images fill their box */
+  #nextSection .pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0;
+  }
+
+  /* Buttons become full-widthish and smaller */
+  #nextSection button {
+    
+    max-width: 300px;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+  }
+
+  /* Tighter dot layout */
+  .dot-container {
+    display: none;
+    bottom: 5px;
+    gap: 5px;
+  }
+
+  .dot-container .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
 
   /*----------------------------------------------------------------
     I) SLIDER (CAROUSEL) IN #section4
@@ -1448,23 +1665,22 @@ h1 {
 /* Small tablets & large phones */
   /* Shrink slide height, show more of each image */
   .track img {
-    width: 55vw;      /* slightly smaller so you see a peek of next slide */
-    height: 30vh;     /* shorter slide height */
+    width: 100vw;      /* slightly smaller so you see a peek of next slide */
+    height: 50vh;     /* shorter slide height */
   }
 
   /* Tighter gap between slides */
   .track {
-    gap: 36px;
+    gap: 26px;
   }
 
   /* If you have nav buttons */
   .slider-nav {
-    gap: 2rem;
-    margin-top: 2rem;
-    padding: 5rem 0;
+    gap: 1rem;
+    padding: 1rem 0;
   }
   .slider-nav button {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 0.4rem 0.8rem;
   }
 }
