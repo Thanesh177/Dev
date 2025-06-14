@@ -1169,7 +1169,7 @@ h1 {
 #section2 .liver p{
   display: flex;
   padding: null;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.2;
   text-align: justify;
   align-items: center;
@@ -1369,37 +1369,39 @@ h1 {
   #section4 {
     flex-direction: column;
     padding: 0px 10px;
+    width: 100%;
+    height: 100%;           /* let it grow with content */
   }
 
   /* Reposition & simplify the rotated text */
   .verti {
     width: auto;
     justify-content: center;
-align-items: center;
-    top: auto;
-    bottom: 0%;
+    align-items: center;
+    top: 76%;
+    right: 79px;
     transform: rotate(0deg);       /* no rotation on mobile */
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding: 5px;
   }
 
   /* Make the carousel container stack */
   #nextSection .container {
     flex-direction: column;
-    height: auto;
+    height: 100%;
   }
 
   /* Text items full width & smaller type */
   .text-item {
     padding: 10px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     max-width: 100%;
   }
 
   /* Shrink the “stage” height */
   .image-container {
     width: 100%;
-    height: 140px;
+    height: 200px;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -1421,18 +1423,23 @@ align-items: center;
   #nextSection .pic img {
     justify-content: center;
     align-items: center;
-    width: 70%;
-    height: 70%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    padding: 0;
+    padding: 0px 10px;
   }
 
   /* Buttons become full-widthish and smaller */
   #nextSection button {
     
     max-width: 300px;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 1rem 0.5rem;
+  }
+
+  #nextSection .button-group {
+    display: flexs;
+    padding: 40px;
   }
 
   /* Tighter dot layout */
@@ -1505,7 +1512,7 @@ align-items: center;
 
 #contact {
   width: 100%;
-  height: 85vh;
+  height: 100vh;
   padding: 0px 25px;
   background-color: #f9f9f9;
 }
@@ -1600,12 +1607,13 @@ align-items: center;
 .footer {
   font-size: 0.9rem;
   color: #ffffff;
-  text-align: center;
   border-top: 1px solid #ddd;
   line-height: 1.4;
 
 }
-
+.last{
+  display: none;
+}
 
 
 .items .contents{
