@@ -285,6 +285,61 @@ html,body {
   color: #fff0f0;
 }
 
+
+
+/*────────────────────────────────────────────────────────────
+  Gallery Title & Subtitle
+────────────────────────────────────────────────────────────*/
+
+.gallery-title {
+  /* Typography */
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3rem);    /* responsive between 32px and 48px */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+
+  /* Layout & spacing */
+  margin: 1rem 0;
+  text-align: center;
+
+  /* Color & emphasis */
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+
+  /* Decorative underline */
+  position: relative;
+}
+.gallery-title::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 0.25rem;
+  background: #ff6a00;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+
+
+.gallery-subtitle {
+  /* Typography */
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-size: clamp(1rem, 3vw, 1.5rem);  /* responsive between 16px and 24px */
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  
+  /* Layout */
+  text-align: center;
+  max-width: 80ch;                      /* keeps lines readable */
+  margin: 0 auto 2rem;                 /* center & add space below */
+  
+  /* Color */
+  color: rgba(255, 255, 255, 0.85);
+}
+
 /*────────────────────────────────────────────────────────────
   gallery
 ────────────────────────────────────────────────────────────*/
@@ -500,5 +555,26 @@ html,body {
 
   .gallery.masonry .label {
     font-size: 1.25rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .gallery-title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);  /* a bit smaller */
+    letter-spacing: 0.1em;
+    margin: 0.75rem 0;
+  }
+  .gallery-title::after {
+    width: 2rem;
+    height: 0.2rem;
+    margin-top: 0.4rem;
+  }
+
+  .gallery-subtitle {
+    font-size: clamp(0.875rem, 4vw, 1.25rem);
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+    line-height: 1.3;
   }
 }

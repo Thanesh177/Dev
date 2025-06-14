@@ -249,32 +249,94 @@ prev.addEventListener('click', function(){
 })
 
 //scroll navigation button
+document.addEventListener('DOMContentLoaded', () => {
+  //
+  // ─── 1) INFINITE‐LOOP SLIDER DOT NAVIGATION ───────────────────────────────────
+  //
+  const sliderSection   = document.getElementById('slider-section');
+  const sliderContainer = sliderSection.querySelector('.slider-container');
+  const track           = sliderSection.querySelector('.track');
+  const slides          = Array.from(track.children);
+  const slideCount      = slides.length / 2;      // only original slides count
+  let currentIndex      = 0;
+  let slideWidth, slideGap;
 
-// put this in your script (after the DOM has loaded)
-const container = document.querySelector('.slider-container');
-const track = document.getElementById('track');
-const slides = track.children;
-const slideCount = slides.length / 2; // only original slides count
-let currentIndex = 0;
+  // Recompute slide width + gap on load & resize
+  function updateDimensions() {
+    const firstSlide = slides[0];
+    const style      = getComputedStyle(track);
+    slideWidth = firstSlide.getBoundingClientRect().width;
+    slideGap   = parseFloat(style.gap) || parseFloat(style.marginRight) || 0;
+  }
+  window.addEventListener('resize', updateDimensions);
+  updateDimensions();
 
-// assume all slides are same width:
-const slideWidth = slides[0].getBoundingClientRect().width;
+  // Pause the CSS animation
+  function pauseAuto() {
+    track.style.animationPlayState = 'paused';
+  }
 
-document.getElementById('nextBtn').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % slideCount;
-  container.scrollTo({
-    left: currentIndex * slideWidth,
-    behavior: 'smooth'
+  // Scroll to a given slide index
+  function scrollToIndex(index) {
+    sliderContainer.scrollTo({
+      left: (slideWidth + slideGap) * index,
+      behavior: 'smooth'
+    });
+  }
+
+  // Generate dots
+  const dotNav = sliderSection.querySelector('.dot-nav');
+  for (let i = 0; i < slideCount; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dotNav.appendChild(dot);
+
+    dot.addEventListener('click', () => {
+      currentIndex = i;
+      updateDots();
+      scrollToIndex(currentIndex);
+    });
+  }
+
+  // Update dot highlighting
+  function updateDots() {
+    dotNav.querySelectorAll('.dot').forEach((d, idx) => {
+      d.classList.toggle('active', idx === currentIndex);
+    });
+  }
+
+  //
+  // ─── 2) DRAGGABLE IMAGE TRACK ─────────────────────────────────────────────────
+  //
+  const imageTrack = document.getElementById('image-track');
+  let isDragging = false,
+      startX     = 0,
+      scrollLeft = 0;
+
+  imageTrack.addEventListener('mousedown', e => {
+    isDragging = true;
+    imageTrack.classList.add('grabbing');
+    startX = e.pageX - imageTrack.offsetLeft;
+    scrollLeft = imageTrack.scrollLeft;
+  });
+
+  ['mouseup', 'mouseleave'].forEach(event =>
+    imageTrack.addEventListener(event, () => {
+      isDragging = false;
+      imageTrack.classList.remove('grabbing');
+    })
+  );
+
+  imageTrack.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x    = e.pageX - imageTrack.offsetLeft;
+    const walk = (x - startX) * 1.5; // scroll speed multiplier
+    imageTrack.scrollLeft = scrollLeft - walk;
   });
 });
 
-document.getElementById('prevBtn').addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-  container.scrollTo({
-    left: currentIndex * slideWidth,
-    behavior: 'smooth'
-  });
-});
 
 // Image slider with text and dots
 document.addEventListener("DOMContentLoaded", () => {
