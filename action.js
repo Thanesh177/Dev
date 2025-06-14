@@ -402,3 +402,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateDisplay(currentIndex, "next");
 });
+
+
