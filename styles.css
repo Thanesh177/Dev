@@ -112,7 +112,7 @@ h1 {
 
 .liver p{
   position: relative;
-  padding: 50px 50px;
+  padding: 30px 30px;
   font-size: 1.5rem;
   line-height: 1.2;
   text-align: justify;
@@ -123,19 +123,18 @@ h1 {
 #section2 .liver {
   position: relative;
   width: 100%;
-  padding: 0px 200px; /* padding for text */
+  padding: 0px 50px; /* padding for text */
   /* set an explicit height, or let your image define it */
-  height: 400px;               
 }
 
 #section2 .about-img {
   position: absolute;
-  padding-bottom: 80px;
-  left: 8%;
-  width: 15%;                  /* adjust as needed */
+  padding-bottom: 90px;
+  left: 5%;
+  width: 30%;                  /* adjust as needed */
   height: 30%;                /* fill the container height */
   object-fit: cover;           /* crop/scale nicely */
-  z-index: 1;                  /* beneath the text */
+  z-index: 1111;                  /* beneath the text */
 }
 
 /*────────────────────────────────────────────────────────────
@@ -143,8 +142,7 @@ h1 {
 ────────────────────────────────────────────────────────────*/
 .scroll-indicator {
   position: fixed;
-  top: 50%;
-  right: 20px;
+
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -1161,19 +1159,37 @@ h1 {
     font-size: 2.25rem;       /* shrink large headings */
   }
 
-  #section2 .about-me {
-    display: flex;
-    font-size: 1rem;       /* scale down paragraph text */
-    line-height: 1.4;
-    border: none;
-    width: 100%;
-    height: 100vh;
-  }
+
 
   #section2 img{
     display: none;
   }
 
+
+#section2 .liver p{
+  display: flex;
+  padding: null;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: justify;
+  align-items: center;
+  opacity: 0.8;
+  border: none;
+  width: 100%;
+  height: 100vh;
+}
+
+#section2 liver{
+  display: flex;
+  width: 100%;
+}
+
+#section2 .liver {
+  width: 100%;
+    align-items: center;
+    justify-content: center;
+  /* set an explicit height, or let your image define it */
+}
   /*----------------------------------------------------------------
     B) SCROLL‐SNAP SECTIONS
   ----------------------------------------------------------------*/
@@ -1202,7 +1218,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 12px;
+    padding: 8px 9px;
     backdrop-filter: blur(50px); /* slightly reduce blur intensity */
   }
 
@@ -1295,7 +1311,6 @@ h1 {
 
   /* Your existing styles above remain unchanged */
 
-@media screen and (max-width: 768px) {
   #section3 .cards-container {
     display: flex;
     flex-direction: column;
@@ -1329,7 +1344,7 @@ h1 {
   #section3 .card p {
     font-size: 0.95rem;
   }
-}
+
   /*----------------------------------------------------------------
     H) IMAGE TRACK (VERTICAL) IN #section2 OR .fashion
   ----------------------------------------------------------------*/
@@ -1351,7 +1366,6 @@ h1 {
 
 
 /* ─── Mobile Styles (≤768px) ─── */
-@media (max-width: 768px) {
   /* Stack section4 vertically */
   #section4 {
     flex-direction: column;
@@ -1393,16 +1407,20 @@ align-items: center;
   #nextSection .pic{
     opacity: 0;
   }
+
   #nextSection .pic.active {
     position: relative;
     opacity: 1 !important;
     transform: translateX(0) !important;
+
   }
 
   /* Ensure images fill their box */
   #nextSection .pic img {
-    width: 100%;
-    height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 70%;
     object-fit: cover;
     padding: 0;
   }
@@ -1426,7 +1444,6 @@ align-items: center;
     width: 10px;
     height: 10px;
   }
-}
 
   /*----------------------------------------------------------------
     I) SLIDER (CAROUSEL) IN #section4
@@ -1486,8 +1503,8 @@ align-items: center;
 
 #contact {
   width: 100%;
-  height: 100vh;
-  padding: 60px 25px;
+  height: 85vh;
+  padding: 50px 25px;
   background-color: #f9f9f9;
 }
 #contact img{
@@ -1506,7 +1523,7 @@ align-items: center;
 }
 
 #contact p{
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 /* ===== FORM STYLES ===== */
@@ -1561,7 +1578,6 @@ align-items: center;
 
 #contact .icon {
   gap: 10px;
-  margin-top: 130px;
   display: flex;
   justify-content: center;
   gap: 24px;
@@ -1584,6 +1600,8 @@ align-items: center;
   text-align: center;
   border-top: 1px solid #ddd;
   line-height: 1.4;
+    margin-bottom: 30px;
+
 }
 
 
