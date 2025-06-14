@@ -1169,7 +1169,7 @@ h1 {
 #section2 .liver p{
   display: flex;
   padding: null;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.2;
   text-align: justify;
   align-items: center;
@@ -1226,12 +1226,12 @@ h1 {
   .navbar nav {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.3rem;
+    gap: 0.2rem;
   }
 
   .navbar nav a,
   .navbar .dropbtn-new {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     padding: 0.4rem 0.6rem;
   }
 
@@ -1319,7 +1319,7 @@ h1 {
   }
 
   #section3 .cards-container .card {
-    width: 120%;
+    width: 140%;
     height: 80px;
       transition: height .6s cubic-bezier(.28,-0.03,0,.99),
               box-shadow .3s ease,
@@ -1329,7 +1329,7 @@ h1 {
 
   #section3 .cards-container .card:hover {
     height: 250px;
-    width: 120%;
+    width: 150%;
   }
 
   #section3 .card .description {
@@ -1504,14 +1504,13 @@ align-items: center;
 #contact {
   width: 100%;
   height: 85vh;
-  padding: 50px 25px;
+  padding: 0px 25px;
   background-color: #f9f9f9;
 }
 #contact img{
   display: none;
 }
 #contact .content {
-  width: 440px;
   margin: 0 auto;
   text-align: center;
 }
@@ -1523,7 +1522,7 @@ align-items: center;
 }
 
 #contact p{
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 /* ===== FORM STYLES ===== */
@@ -1537,12 +1536,11 @@ align-items: center;
 
 #contact .form .input,
 #contact .form textarea {
-  width: 100%;
-  padding: 12px 14px;
-  font-size: 1rem;
+  width: 80%;
+  padding: 10px 10px;
+  font-size: 0.9rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  resize: vertical;
   transition: border-color 0.2s ease;
 }
 
@@ -1554,13 +1552,13 @@ align-items: center;
 
 #contact .form textarea {
   min-height: 120px;
-  line-height: 1.5;
+  line-height: 1;
 }
 
 #contact .form input[type="submit"]#send {
   align-self: center;
   padding: 12px 24px;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #fff;
   background-color: #6c63ff;
@@ -1584,7 +1582,7 @@ align-items: center;
 }
 
 #contact .icon a {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: #bbb4b4;
   transition: color 0.2s ease, transform 0.2s ease;
 }
@@ -1600,11 +1598,8 @@ align-items: center;
   text-align: center;
   border-top: 1px solid #ddd;
   line-height: 1.4;
-    margin-bottom: 30px;
 
 }
-
-
 
 
 
@@ -1642,7 +1637,6 @@ align-items: center;
 }
 
 .contents button{
-    padding: 10px 20px;
     border: none;
     cursor: pointer;
     opacity: 0;
