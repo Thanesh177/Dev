@@ -1174,9 +1174,9 @@ h1 {
   text-align: justify;
   align-items: center;
   opacity: 0.8;
-  border: none;
+  border: 0.5px solid #ccc;
   width: 100%;
-  height: 100vh;
+  padding: 20px 20px;
 }
 
 #section2 liver{
@@ -1185,7 +1185,7 @@ h1 {
 }
 
 #section2 .liver {
-  width: 100%;
+    width: 100%;
     align-items: center;
     justify-content: center;
   /* set an explicit height, or let your image define it */
@@ -1218,7 +1218,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8px 9px;
+    padding: 13px 9px;
     backdrop-filter: blur(50px); /* slightly reduce blur intensity */
   }
 
@@ -1370,9 +1370,14 @@ h1 {
   /* Stack section4 vertically */
   #section4 {
     flex-direction: column;
-    padding: 550px 10px;
+    padding: 0px 10px;
     width: 100%;
     height: 100%;           /* let it grow with content */
+    top: 50%;
+    left: 50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   /* Reposition & simplify the rotated text */
@@ -1515,7 +1520,7 @@ h1 {
 #contact {
   width: 100%;
   height: 100vh;
-  padding: 00px 25px;
+  padding: 00px 15px;
   background-color: #f9f9f9;
 }
 #contact img{
@@ -1536,6 +1541,8 @@ h1 {
   width: 100%;
   font-size: 0.9rem;
   position: relative;
+  gap: 0px;
+  padding: null;
   left: 0;
 }
 
