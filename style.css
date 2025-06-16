@@ -1,0 +1,2741 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
+
+/* Your existing CSS styles */
+@media (max-width: 768px) {
+
+/* Initial fade-in animation for loading screen */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    opacity: 0; /* Initially transparent */
+    animation: fadeIn 1s ease forwards; /* Fade-in animation */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Fade-out animation for loading screen */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+
+.loading-text {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  line-height: 100px;
+}
+
+.loading-text span {
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+  font-family: "Quattrocento Sans", sans-serif;
+}
+
+.loading-text span:nth-child(1) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0s infinite linear alternate;
+  animation: blur-text 1.5s 0s infinite linear alternate;
+}
+
+.loading-text span:nth-child(2) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.2s infinite linear alternate;
+  animation: blur-text 1.5s 0.2s infinite linear alternate;
+}
+
+.loading-text span:nth-child(3) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.4s infinite linear alternate;
+  animation: blur-text 1.5s 0.4s infinite linear alternate;
+}
+
+.loading-text span:nth-child(4) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.6s infinite linear alternate;
+  animation: blur-text 1.5s 0.6s infinite linear alternate;
+}
+
+.loading-text span:nth-child(5) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.8s infinite linear alternate;
+  animation: blur-text 1.5s 0.8s infinite linear alternate;
+}
+
+.loading-text span:nth-child(6) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 1s infinite linear alternate;
+  animation: blur-text 1.5s 1s infinite linear alternate;
+}
+
+.loading-text span:nth-child(7) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 1.2s infinite linear alternate;
+  animation: blur-text 1.5s 1.2s infinite linear alternate;
+}
+
+@keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
+  }
+}
+
+
+/* Navbar Container */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    padding: 10px;
+    background-color: #000;
+    width: 100%;
+    z-index: 100000;
+}
+
+/* Menu Styles */
+/* Explicitly hide Resume link only on mobile */
+@media (max-width: 768px) {
+    .navbar {
+      display: none;
+    }
+  }
+
+.navbar ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    background-color: #111;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    transform: scale(0.8);
+    pointer-events: auto; /* Prevent interaction when hidden */
+}
+
+
+/*shooting-star*/
+.shooting-star {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.shooting-star span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: rgb(22, 112, 215);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
+              0 0 0 8px rgba(255, 255, 255, 0.1), 
+              0 0 0 20px rgba(255, 255, 255, 0.1);
+  animation: shoot linear infinite;
+}
+
+
+.shooting-star span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, white, transparent);
+  filter: blur(1px);
+}
+
+@keyframes shoot {
+  0% {
+    transform: rotate(315deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-1000px);
+    opacity: 0;
+  }
+}
+
+.shooting-star span:nth-child(1) {
+  top: -10%;
+  left: 30%;
+  animation-delay: 3s;
+  animation-duration: 2.8s;
+}
+
+
+
+.shooting-star span:nth-child(2) {
+  top: 0%;
+  left: 45%;
+  animation-delay: 14s;
+  animation-duration: 2.4s;
+}
+
+
+
+
+.shooting-star span:nth-child(3) {
+  top: -10%;
+  left: 70%;
+  animation-delay: 10.3s;
+  animation-duration: 2.7s;
+}
+
+.shooting-star span:nth-child(4) {
+  top: 0%;
+  left: 95%;
+  animation-delay: 8.8s;
+  animation-duration: 2s;
+}
+
+
+.shooting-star span:nth-child(5) {
+  top: 20%;
+  left: 120%;
+  animation-delay: 5s;
+  animation-duration: 2.2s;
+}
+
+
+/* Menu Items */
+.navbar ul li {
+    font-family: century;
+    font-size: 1.5rem;
+    font-style: normal;
+    margin: 10px;
+    justify-items: center;
+    align-items: center;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 5px ;
+    transition: all 0.5s ease;
+    justify-items: center;
+    align-items: center;
+}
+
+.navbar ul li a:hover {
+    color: rgb(128, 222, 230);
+    box-shadow: 0 0 10px rgba(254, 255, 255, 0.3);
+    opacity: 0.59;
+}
+
+/* Show the menu when the 'show' class is added */
+.navbar ul.show {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto; /* Allow interaction when visible */
+}
+
+
+/*HomeSection*/
+#home{
+    color: black;
+    background-color: black;
+    display : flex;
+    height: 60vh;
+    width: 100%;
+    flex-direction : column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    justify-content: flex-start;
+    color: white;
+}
+
+#home::before {
+    content: "";
+    position: absolute; /* Use absolute positioning */
+    right: 0;
+    left: 0;
+    background: 
+        url('IMG-20240702-WA0012-2.png') no-repeat center center,
+        rgba(0, 0, 0, 1); /* Black background color */
+    background-size: cover; /* Adjust the percentage as needed */
+    height:35%; /* Ensure background doesn't overflow */
+    width: 100%;
+}
+
+.main{
+    padding-left: 20px;
+    padding-top: 360px;
+}
+
+.main p {
+    font-size: 1.5rem;
+    letter-spacing: 10px;
+    font-family: monospace;
+    border-right: 5px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    width: 0;
+    opacity: 1;
+    animation: typing 2s steps(20, end) infinite alternate, 
+               cursor 0.5s step-end infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+    from {
+        width: 0;
+        opacity: 1;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+/* Blinking cursor */
+@keyframes cursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+
+/* Hides the cursor */
+@keyframes hide-cursor {
+    to {
+        border-color: transparent;
+    }
+}
+
+
+
+
+/* about section*/
+#about{
+    display: flex;
+    flex-direction: column;
+    height: 550;
+    width: 100%;
+    background: black;
+    font-size: 1.2rem;
+    padding-bottom: 200px;
+}
+
+.heading:hover{
+    opacity: 0.7;
+}
+
+
+#pic img{
+width: 20%;
+height: 10%;
+opacity: 80%;
+justify-content: center;
+align-items: center;
+padding: 0px 20px;
+}
+
+/*────────────────────────────────────────────
+  1) DEFAULT #intro & .mc (no animation)
+────────────────────────────────────────────*/
+#intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: justify;      /* full justification */
+  width: 100%;
+  color: white;
+  font-size: 1.2rem;
+  border: 0 solid rgba(255,255,255,0.1);
+  padding: 125px 35px 35px; /* top padding larger for spacing */
+  box-sizing: border-box;
+}
+
+.mc {
+  padding: 1rem;
+  border-radius: 8px;
+  border: 0 solid white;   /* will draw via animation */
+  background: rgba(0,0,0,0.2); /* optional translucent backdrop */
+}
+
+/*────────────────────────────────────────────
+  2) ANIMATIONS TRIGGERED ON .visible
+────────────────────────────────────────────*/
+#intro.visible {
+  animation: slideInOut 1s ease-in-out both;
+}
+
+#intro.visible .mc {
+  animation: borderGrow 0.6s ease-in-out both 0.7s;
+}
+
+/*────────────────────────────────────────────
+  3) KEYFRAMES
+────────────────────────────────────────────*/
+@keyframes slideInOut {
+  from {
+    transform: translateY(20%) scale(1);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0)    scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes borderGrow {
+  0%   { border-width: 0; }
+  50%  { border-width: 0.06rem; }
+  100% { border-width: 0.12rem; }
+}
+
+/*────────────────────────────────────────────
+  4) MOBILE OVERRIDES (≤768px)
+────────────────────────────────────────────*/
+@media (max-width: 768px) {
+  #intro {
+    padding: 80px 20px 20px;    /* tighter padding */
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  .mc {
+    padding: 0.75rem;
+    border-radius: 6px;
+  }
+
+  /* speed up & shorten the animations on mobile */
+  #intro.visible {
+    animation: slideInOut 0.8s ease-in-out both;
+  }
+  #intro.visible .mc {
+    animation: borderGrow 0.4s ease-in-out both 0.4s;
+  }
+
+  @keyframes borderGrow {
+    0%   { border-width: 0; }
+    100% { border-width: 0.08rem; }
+  }
+}
+
+  
+/* portfolio section*/
+#portfolio {
+    position: absolute;
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    position: relative; /* Add position relative to create a stacking context */
+}
+
+.o {
+    font-size: 1.5rem;
+    color: white;
+    position: absolute;
+    word-wrap: break-word; 
+    text-align: justify;
+    max-width: 80%; /* Set a maximum width for the text */
+    justify-content: center;
+    z-index: 0; /* Set a higher z-index value to overlap the .o class */
+    top: 30%;
+    left: 10%;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+
+
+.o--visible{
+    animation: slideInTop 1.2s ease-in-out;
+
+    opacity: 1;
+}
+
+
+#image-track {
+    padding-top: 100px;
+    padding-bottom: 200px;
+    display: flex;
+    gap: 4vmin;
+    transform: translate(0%, -50%); 
+}
+
+.image {
+    width: 30vmin;
+    height: 30vmin;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    filter: brightness(0.75);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.image.active:hover{
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    z-index: 10; /* Bring the active image to the front */
+}
+
+
+/* Dim non-active images */
+.image.dim {
+    filter: brightness(0.6);
+}
+
+.timeline {
+    position: relative;
+    padding: 10px 1rem;      /* less horizontal padding */
+    background-color: #000;
+    color: white;
+    overflow: hidden;
+  }
+
+.timeline .content{
+    border-radius: 12px;
+   transition: 
+    color 0.5s ease,
+    box-shadow 0.5s ease,
+    border-color 0.5s ease,
+    padding 0.5s ease;
+}
+
+
+
+.timeline-item .content h3{
+    color: #a4a0a0;
+}
+
+.timeline-item .content:hover{
+  color: white;
+        box-shadow: 0px 0px 15px rgb(126, 165, 255);
+        transition: 0.5s;
+        border: 1px solid white;
+
+  padding: 1rem;
+}
+
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;            /* start at the very top */
+  bottom: 0;         /* end at the very bottom */
+  left: 10%;         /* center horizontally */
+  width: 1.5px;
+  background: #ddd;
+}
+
+  /* Make each item full width */
+  .timeline-item {
+    width: 100%;
+    padding: 1rem 1rem 2rem 3rem; /* indent content from the new line */
+    margin-bottom: 2rem;
+  }
+
+  /* All items align left */
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+
+  /* Position the marker on the new line */
+  .timeline-item::before {
+    left: 1rem;
+    right: auto;
+  }
+
+/*.img{
+
+}
+*/
+/*
+.scroll-watcher{
+    height: 35px;
+    position: relative;
+    top: 50%;
+    z-index: 100;
+    background-color: rgb(240, 100, 100);
+    width: 100%;
+    scale:0 1;
+    transform-origin: left;
+    transform: translate(-50%, -50%); 
+    animation: scroll-watcher linear forwards; 
+    animation-timeline: scroll();
+}
+
+@keyframes scroll-watcher{
+    to {
+        scale:1 1;
+    }
+}
+*/
+
+/* Action section*/
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 10px;
+    height: 50px;
+    top: 23%;
+    padding-left: 80px;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 22;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item{
+    padding-top: 70px;
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+.banner .slider .item img{
+    width: 140%;
+    height: 120%;
+    object-fit: cover;
+}
+
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 12;
+}
+
+    .banner .content h2{
+        display: flex;
+        position: relative;
+        font-size: 3rem;
+        width: 100%;
+        right: -140%;
+        top: 120px;
+        color: rgb(255, 255, 255);
+        z-index: 788;
+    }
+
+    .banner .content .you{
+        display: flex;
+        color: #ff1c1c;
+        font-size: 9rem;
+    }
+
+
+.banner .content .model{
+    background-color: #000;
+    background-image: url(model.png);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    background-size: auto 70%;
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    z-index: 1;
+}
+
+
+.banner .slider:hover {
+    animation-play-state: paused;
+}
+
+    /* Stop rotation when hovered */
+    .banner .slider:hover {
+        animation-play-state: paused;
+    }
+    
+    /* When the slider is hovered, dim all its items */
+    .banner .slider:hover .item {
+        filter: brightness(0.5);
+        transition: filter 0.5s ease-in-out;
+    }
+
+    /* When an individual item is hovered, override to brighten it */
+    .banner .slider .item:hover {
+        filter: brightness(1.2);
+        transition: filter 0.5s ease-in-out;
+    }
+
+    .banner .slider .item{
+        filter: brightness(1);
+        transition: filter 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    }
+
+    /* Stop rotation when .paused class is added (e.g. when clicked) */
+    .banner .slider.paused {
+        animation-play-state: paused;
+    }
+
+    /* Pop-out effect when clicked */
+    .banner .slider .item.active {
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(150px) scale(1.2); /* Pops out */
+        transition: transform 0.5s ease-in-out;
+        z-index: 100;
+
+    }
+
+    /* Make the active item much brighter */
+    .banner .slider .item.active img {
+        box-shadow: 0 0 40px rgb(134, 59, 238);
+        filter: brightness(1);
+    }
+
+    /* When hovering (or when paused) and an item is active, dim all non-active items */
+    .banner .slider.paused .item:not(.active) img {
+        filter: brightness(0.6);
+    }
+    
+
+
+
+    .banner .slider{
+        width: 60px;
+        height: 100px;
+        left: calc(50% - 36px);
+    }
+
+    .banner .slider .item{
+        transform: 
+            rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+            translateZ(180px);
+    }
+    .banner .content h1{
+        font-size: 5em;
+    }
+
+
+
+.container {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === Image Container on Top === */
+.image-container {
+    width: 100%;
+    order: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-bottom: 20px; /* Spacing between image & text */
+}
+
+/* === Image Styling for Mobile === */
+.pic {
+    position: relative;
+    opacity: 0;
+    width: 100%;
+    max-width: 350px; /* Adjust image size */
+    transform: translateY(100px); /* Start position below */
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out, filter 1s ease-in-out;
+}
+
+.pic.active {
+    opacity: 1;
+    transform: translateY(0); /* Slides up into place */
+    filter: blur(0);
+}
+
+.pic img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* === Text Container Below Image === */
+.text-container {
+    color: rgb(255, 255, 255);
+    width: 90%;
+    text-align: center;
+    min-height: 150px; /* Adjusted for smaller screens */
+    padding: 10px;
+    order: 2; /* Moves text below the image */
+}
+
+/* === Text Style with Bottom-to-Top Transition === */
+.text-item {
+    font-size: 20px;
+    opacity: 0;
+    display: none;
+    text-align: justify;
+    transform: translateY(50px); /* Starts below */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    position: relative;
+    width: 100%;
+}
+
+.text-item.active {
+    opacity: 1;
+    display: block;
+    transform: translateY(0); /* Slides up into place */
+}
+
+
+/* service section*/
+#services{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: auto;
+    width: 100%;
+    font-size: 1.5rem;
+    padding-top: 200px;
+}
+
+.head{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: white;
+    width: 100%;
+    font-size: 1.9rem;
+}
+
+.row{
+    padding-top: 60px;
+    display: flex;
+    gap: 50px; /* space between boxes */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+}
+
+.bt {
+    padding: 10px 20px;
+    font-size: 17px;
+    transition: 0.5s;
+    color: white;
+    background-color: rgb(13, 13, 15);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.bt:hover {
+    color: darkblue;
+    font-size: 23px;
+    
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    width: 250px;
+    height: 390px;
+    font-size: 1rem;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 15px;
+    color: white;
+    opacity: 0;
+    transition: transform 3s ease, opacity 1s ease;
+    transform-style: preserve-3d;
+    transition: background-color 0.5s ease; /* Smooth background transition */
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85%; /* Updated to cover entire box */
+    border-radius: 15px;
+    opacity: 1; /* Fully visible by default */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth fade and optional transform */
+}
+
+.box:hover::before {
+    opacity: 0; /* Gradually hide the background image */
+    transform: scale(1.05); /* Optional: slight zoom-out effect on hover */
+}
+
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Hidden initially */
+    opacity: 0; /* Invisible initially */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.box:hover .text {
+    transform: translate(-50%, -50%) scale(1); /* Fully visible */
+    opacity: 1; /* Fade in */
+}
+
+/* When the active class is added, hide the text */
+.text.active {
+    color: transparent;
+    opacity: 0; /* Hide the text */
+    transform: translate(-50%, -50%) scale(0); /* Scale down to hide */
+}
+
+
+        /* Specific images for each box */
+        #box1::before {
+            background: url('s1.png') no-repeat center/cover;
+        }
+        
+        #box2::before {
+            background: url('s2.png') no-repeat center/cover;
+        }
+
+        #box3::before {
+            background: url('s3.png') no-repeat center/cover;
+        }
+
+        #box5::before {
+            background: url('qq.png') no-repeat center/cover;
+        }
+
+        #box4::before {
+            background: url('premium_photo-1681586126003-2a6d4ba943a2.jpeg') no-repeat center/cover;
+        }
+        #box6::before {
+            background: url('dev.png') no-repeat center/cover;
+        }
+
+.box--visible {
+    animation: slideInTop 1.2s ease-in-out;
+    opacity: 1;
+}
+
+.box:hover {
+    color: black;
+    background-color: black; /* Turns the background black */
+    box-shadow: 0 0 40px rgb(126, 165, 255);
+    transition: 1.3s ease, color 1.3s ease;
+    border: 1px solid rgb(218, 218, 218);
+    filter: invert(7%);
+}
+
+
+.box.active {
+    background-position: left bottom;
+    color: black;
+    border: none;
+    box-shadow: 0 0 40px rgb(126, 165, 255);
+    border: 1px solid rgb(218, 218, 218);
+    transform: rotateY(180deg);
+    filter: grayscale(100%);
+}
+
+.c {
+    visibility: hidden;
+    color: rgb(50, 38, 38);
+    opacity: 0;
+    transform: translateY(30px) rotateY(180deg);
+    height: 320px;
+    padding: 10px;
+    text-align: justify;
+    transition: transform 1s ease, opacity 1.3s ease, visibility 0s 1.3s; /* visibility delay */
+}
+
+.c.active {
+    opacity: 1;
+    color: white;
+    visibility: visible;
+    transition-delay: 0.5s; /* Delay visibility change */
+    transform: translateY(0);
+    transform: rotateY(180deg);
+}
+
+
+
+
+.box a{
+    display: flex;
+    width: 40px;
+    height: 40px;
+    border: 1.3px solid white;
+    font-size: 20px;
+    border-radius: 50%;
+    color: lightblue;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+
+}
+
+.box a:hover{
+    color: rgb(255, 255, 255);
+    box-shadow: 0 0 40px rgb(61, 63, 66);
+    background: black;
+    transform: scale(1.1);
+    filter: brightness(110%) drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+
+}
+
+.pp {
+    display: flex;
+    margin-left: 37px;
+    gap: 10px;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(30px); /* Move slightly downward */
+    transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+}
+
+.box:hover .pp {
+    opacity: 1; /* Fully visible on hover */
+    transform: translateY(0); /* Return to original position */
+
+}
+
+.pp.active{
+    transform: rotateY(20deg);
+
+}
+
+#nextSection {
+    position: relative;
+    background: black;
+    padding-top: 80px;
+    height: auto;
+}
+
+/* Button Group Layout */
+.button-group {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    z-index: 10;
+    padding: 39px;
+}
+
+/* Shared Button Styles */
+#nextSection button {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fdfdfd;
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(82, 77, 77, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    width: 20vw;
+    font-size: 15px;
+    padding: 14px 0;
+    white-space: nowrap;
+    bottom: 20px;
+}
+
+/* Hover/Active Effects */
+#nextSection button:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+#nextSection button:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+.dot-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 9;
+    padding: 20px;
+}
+
+.dot-container .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot-container .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.3);
+}
+
+  .text-item p {
+    display: none;
+  }
+
+
+
+
+/* contact section*/
+#contact{
+display: flex;
+flex-direction: column;
+box-sizing: border-box;
+background-color: black;
+color: white;
+height: auto;
+padding: 20px;
+font-size: 1.2rem;
+}
+
+.form{
+    padding-top: 19px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.input{
+    padding: 12px;
+    margin: 7px;
+    width: 65%;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+#msg{
+width: 65%;
+height: 27%;
+padding: 10px;
+margin: 7px;
+font-size: 18px;
+border: none;
+outline: none;
+}
+
+#send{
+padding: 5px;
+will-change: 10%;
+margin: 30px;
+border-radius: 10px;
+font-size: 20px;
+width: 90px;
+height: 40px;
+border: none;
+outline: none;
+box-shadow: 10px 10px 20px #3c3c3d, -10px -10px 20px #3c3c3d;
+}
+
+#send:hover{
+cursor: pointer;
+background: lightblue;
+box-shadow: 0 0 40px lightblue;
+font-weight: bold;
+}
+
+.oi{
+display: flex;
+flex-direction: row;
+height: 50px;
+width: 120px;
+justify-content: space-between;
+}
+
+
+
+.oi a{
+display: flex;
+width: 35px;
+height: 35px;
+background: transparent;
+border: 2px solid white;
+font-size: 20px;
+border-radius: 50%;
+color: lightblue;
+justify-content: center;
+align-items: center;
+background: linear-gradient(to top, rgb(154, 217, 238) 50%, black 50%);
+background-size: 100% 200%;
+transition: all .7s;
+}
+
+.oi a:hover{
+background-position: left bottom;
+color: black;
+border: none;
+box-shadow: 0 0 40px rgb(126, 165, 255);
+}
+
+
+.m{
+    margin: 1rem 0;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+} 
+
+.m--visible{
+    animation: slideInTop 1.2s ease-in-out;
+
+    opacity: 1;
+}
+
+}
+
+
+/* for windows */
+@media (min-width: 769px){
+
+    
+/* Initial fade-in animation for loading screen */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    opacity: 0; /* Initially transparent */
+    animation: fadeIn 1s ease forwards; /* Fade-in animation */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Fade-out animation for loading screen */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+
+.loading-text {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+}
+
+.loading-text span {
+  display: inline-block;
+  margin: 0 5px;
+  color: #fff;
+  font-family: "Quattrocento Sans", sans-serif;
+}
+
+.loading-text span:nth-child(1) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0s infinite linear alternate;
+  animation: blur-text 1.5s 0s infinite linear alternate;
+}
+
+.loading-text span:nth-child(2) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.2s infinite linear alternate;
+  animation: blur-text 1.5s 0.2s infinite linear alternate;
+}
+
+.loading-text span:nth-child(3) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.4s infinite linear alternate;
+  animation: blur-text 1.5s 0.4s infinite linear alternate;
+}
+
+.loading-text span:nth-child(4) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.6s infinite linear alternate;
+  animation: blur-text 1.5s 0.6s infinite linear alternate;
+}
+
+.loading-text span:nth-child(5) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 0.8s infinite linear alternate;
+  animation: blur-text 1.5s 0.8s infinite linear alternate;
+}
+
+.loading-text span:nth-child(6) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 1s infinite linear alternate;
+  animation: blur-text 1.5s 1s infinite linear alternate;
+}
+
+.loading-text span:nth-child(7) {
+  filter: blur(0px);
+  -webkit-animation: blur-text 1.5s 1.2s infinite linear alternate;
+  animation: blur-text 1.5s 1.2s infinite linear alternate;
+}
+
+@keyframes blur-text {
+  0% {
+    filter: blur(0px);
+  }
+  100% {
+    filter: blur(4px);
+  }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;  /* space between nav and logo */
+    align-items: center;
+    background-color: black;
+    padding: 18px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 30px; /* spacing between nav links */
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: rgb(128, 222, 230);
+    box-shadow: 0 0 10px rgb(128, 74, 165);
+    opacity: 0.75;
+}
+
+/* Logo on right */
+.navbar .logo {
+    color: rgb(128, 74, 165);
+    font-size: 2.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+    /*HomeSection*/
+
+    #home{
+        background-color: black;
+        display : flex;
+        flex-direction : column;
+    /* background-color: black;*/
+        height: 60vh;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        width: 100%;
+    }
+    #home::before {
+        content: "";
+        position: absolute; /* Use absolute positioning */
+        right: 0;
+        left: 0;
+        background: 
+            url('IMG-20240702-WA0012-2.png') no-repeat center center,
+            rgba(0, 0, 0, 1); /* Black background color */
+        background-size: 50%; /* Adjust the percentage as needed */
+        height: 60vh;
+        width: 100%;
+    }
+
+    .main {
+        padding-left: 500px;
+        padding-top: 10px;
+    }
+    
+    .main p {
+        font-size: 1.5rem;
+        letter-spacing: 10px;
+        font-family: monospace;
+        border-right: 5px solid;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+        width: 0;
+        opacity: 1;
+        animation: typing 2s steps(20, end) infinite alternate, 
+                   cursor 0.5s step-end infinite;
+    }
+    
+    /* Typing effect */
+    @keyframes typing {
+        from {
+            width: 0;
+            opacity: 1;
+        }
+        to {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+    
+    /* Blinking cursor */
+    @keyframes cursor {
+        50% {
+            border-color: transparent;
+        }
+    }
+    
+    
+
+    
+    /* Hides the cursor */
+    @keyframes hide-cursor {
+        to {
+            border-color: transparent;
+        }
+    }
+    
+    
+    .btn{
+        padding : 7px 10px;
+        background-color: transparent;
+        border : 1px solid white;
+        border-radius: 10px;
+        color: lightblue;
+        outline: none;
+        font-size: 1.2rem;
+        transition: 0.5s ease;
+    }
+
+    .btn:hover{
+        cursor: pointer;
+        background-color: rgb(255, 255, 255);
+        color: black;
+        box-shadow: 0 0 40px rgb(126, 165, 255);
+        font-weight: bold;
+    }
+
+    /* about section*/
+    #about{
+        height: 750px;
+        width: 100%;
+        display: flex;
+        background: black;
+
+
+    }
+
+
+
+        @keyframes slideInOut {
+        0% {
+            transform: translateY(20%) scale(1);
+            opacity: 0;
+        }
+        10% {
+            transform: translateY(16) scale(0.3);
+            opacity: 1;
+        }
+        35% {
+            transform: translateY(-20%) scale(01);
+            opacity: 0.6;
+        }
+
+        100% {
+            transform: translateY(0%) scale(0.9);
+            opacity: 1;
+        }
+
+    }
+      
+      #intro {
+        opacity: 0; /* Initially invisible */
+        display: flex;
+        font-size: 1.1rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        line-height: 1.6;
+        text-align: justify;
+        padding: 200px;
+        width: 100%;
+        height: 70vh;
+      }
+/* 1) Base styles, no animation on load */
+.mc {
+  border: 0 solid white;
+  padding: 30px 20px;
+  border-radius: 12px;
+}
+
+/* 2) When #intro gets .visible, trigger borderGrow after 1.4s */
+#intro.visible .mc {
+  animation: borderGrow 0.7s ease-in-out both 0.7s;
+}
+
+/* 3) Keep your slide-in animation on #intro.visible */
+#intro.visible {
+  animation: slideInOut 1s ease-in-out both;
+}
+
+/* Keyframes */
+@keyframes slideInOut {
+  0%   { transform: translateY(20%) scale(1);  opacity: 0; }
+  100% { transform: translateY(0) scale(1);    opacity: 1; }
+}
+@keyframes borderGrow {
+  0% {
+    border-width: 0;
+    border-color: rgba(255,255,255,0);
+    box-shadow: 0 0 0 rgba(255,255,255,0);
+  }
+  30% {
+    border-width: 0.05rem;
+    border-color: rgba(255,255,255,0.5);
+    box-shadow: 0 0 5px rgba(255,255,255,0.2);
+  }
+  60% {
+    border-width: 0.1rem;
+    border-color: rgba(255,255,255,0.8);
+    box-shadow: 0 0 10px rgba(255,255,255,0.4);
+  }
+  100% {
+    border-width: 0.19rem;
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255,255,255,0.6);
+  }
+}
+
+
+    /* portfolio section*/
+    #portfolio {
+        position: absolute;
+        background-color: black;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        position: relative; /* Add position relative to create a stacking context */
+    }
+    
+    .o {
+        font-size: 1.5rem;
+        color: white;
+        position: absolute;
+        word-wrap: break-word; 
+        max-width: 80%; /* Set a maximum width for the text */
+        justify-content: center;
+        z-index: 0; /* Set a higher z-index value to overlap the .o class */
+        top: 30%;
+        left: 10%;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: transform 1s ease, opacity 1s ease;
+    }
+    
+    
+    #image-track {
+        display: flex;
+        gap: 2.5vmin;
+        position: relative;
+        user-select: none; /* Prevent image highlighting */
+    }
+    
+    .image {
+        width: 20vmin;
+        height: 20vmin;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+        filter: brightness(0.85);
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    
+    /* Active image pops out with increased brightness and scale */
+    .image.active {
+        transform: scale(1.2) !important;
+        filter: brightness(1.2) !important;
+      }
+
+
+    .image:hover {
+        transform: scale(1.1) !important;
+        filter: brightness(1.1) !important;
+    }
+
+    .lag{
+        display: flex;
+        padding: 20px 80px;
+        font-size: 2rem;
+        width: 100%;
+    }
+
+/* ─── TIMELINE CONTAINER ───────────────────────────────────── */
+.timeline {
+  position: relative;
+  background-color: #000;
+  padding: 230px 500px;
+}
+
+/* center vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 15%; bottom: 12%;
+  left: 50%;
+  width: 2px;
+  background: #ddd;
+  transform: translateX(-50%);
+}
+
+/* ─── TIMELINE ITEM ───────────────────────────────────────── */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+.timeline-item .content {
+  background: #201d1d;
+  color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+   transition: 
+    color 0.5s ease,
+    box-shadow 0.5s ease,
+    border-color 0.5s ease,
+    padding 0.5s ease;
+}
+
+.timeline-item .content h3{
+    color: #a4a0a0;
+}
+
+.timeline-item .content:hover{
+  color: white;
+        box-shadow: 0px 0px 20px rgb(126, 165, 255);
+        transition: 0.5s;
+        border: 1px solid white;
+
+  padding: 1.2rem;
+}
+
+/* circle marker on the center line */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 1.25rem;       /* adjust to vertically align with content */
+  width: 12px;
+  height: 12px;
+  background: #0359b4;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #014791;
+}
+
+/* left items */
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+.timeline-item.left::before {
+  right: -6px;      /* half of marker width */
+}
+
+/* right items */
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+.timeline-item.right::before {
+  left: -6px;
+}
+
+
+    
+    /*  timeline 
+    #timeline{
+        background-color: black;
+        color: #ffffff;
+        position: relative;
+        max-width: 1600px;
+    }
+    .container{
+        padding: 10px 50px;
+        position: relative;
+        width: 50%;
+        animation: movedown 27s linear forwards;
+        opacity: 0;
+        transform: translateY(20px); 
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .container.visible {
+        opacity: 1;
+        transform: translateY(1);
+    }
+
+    @keyframes movedown {
+        0%{
+            opacity: 1;
+            transform: translateY(-30px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    .container:nth-child(1){
+        animation-delay: 1s;
+    }
+    .container:nth-child(2){
+        animation-delay: 2s;
+    }
+    .container:nth-child(3){
+        animation-delay: 3s;
+    }
+    .container:nth-child(4){
+        animation-delay: 4s;
+    }
+    .container:nth-child(5){
+        animation-delay: 5s;
+    }
+
+    .text-box{
+        padding: 20px 30px;
+        background: transparent;
+        position: relative;
+        border-radius: 25px;
+        font-size: 0.8rem;
+        width: 160px;
+        border: 1px solid black;
+
+    }
+    .text-box:hover{
+        color: white;
+        box-shadow: 0 0 40px rgb(126, 165, 255);
+        transition: 1s;
+        border: 1px solid white;
+
+    }
+    .left{
+        left: 0;
+        padding-left: 10px;
+    }
+    .right{
+        left: 50%;
+        padding-left: 16px;
+    }
+
+    #timeline::after{
+        content: '' ;
+        position: absolute;
+        width: 3px;
+        height: 100%;
+        background: rgb(224, 224, 224);
+        top: 0;
+        left: 50%;
+        margin-left: -3px;
+        z-index: 1;
+        animation: moveline 15s linear forwards;
+    } 
+
+    @keyframes moveline {
+        0%{
+            height: 0;
+        }
+        100%{
+            height: 100%;
+        }
+    }
+    .text-box h2{
+        font-weight: 600;
+    }
+
+    .text-box small{
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    */
+
+
+    #menuToggle {
+        display: none;
+    }
+
+
+    /* service section*/
+    #services{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 300px;
+        background-color: black;
+        height: auto;
+        font-size: 1.5rem;
+        width: 100%;
+        }
+
+        .head{
+            display: flex;
+            justify-content: left;
+            color: white;
+            width: 100%;
+            font-size: 1.9rem;
+        }
+        
+        .row{
+            padding-top: 60px;
+            display: flex;
+            gap: 65px; /* space between boxes */
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            width: 100%;
+            height: auto;
+        }
+
+        .bt {
+            padding: 10px 20px;
+            font-size: 17px;
+            transition: 0.5s;
+            color: white;
+            background-color: rgb(13, 13, 15);
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .bt:hover {
+            color: darkblue;
+            font-size: 23px;
+            
+        }
+        
+        .box {
+            display: flex;
+            flex-direction: column;
+            bottom: 0;
+            width: 270px;
+            height: 400px;
+            font-size: 1rem;
+            border: 1px solid black;
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+            opacity: 0;
+            transition: transform 3s ease, opacity 1s ease;
+            transform-style: preserve-3d;
+            transition: background-color 0.5s ease; /* Smooth background transition */
+        }
+        
+        .box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 87%; /* Updated to cover entire box */
+            border-radius: 15px;
+            opacity: 1; /* Fully visible by default */
+            transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth fade and optional transform */
+        }
+        
+        .box:hover::before {
+            opacity: 0; /* Gradually hide the background image */
+            transform: scale(1.05); /* Optional: slight zoom-out effect on hover */
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0); /* Hidden initially */
+            opacity: 0; /* Invisible initially */
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Smooth transition */
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+        
+        .box:hover .text {
+            transform: translate(-50%, -50%) scale(1); /* Fully visible */
+            opacity: 1; /* Fade in */
+        }
+        
+        /* When the active class is added, hide the text */
+        .text.active {
+            color: transparent;
+            opacity: 0; /* Hide the text */
+            transform: translate(-50%, -50%) scale(0); /* Scale down to hide */
+        }
+        
+        
+        /* Specific images for each box */
+        #box1::before {
+            background: url('s1.png') no-repeat center/cover;
+        }
+        
+        #box2::before {
+            background: url('s2.png') no-repeat center/cover;
+        }
+
+        #box3::before {
+            background: url('s3.png') no-repeat center/cover;
+        }
+
+        #box5::before {
+            background: url('qq.png') no-repeat center/cover;
+        }
+
+        #box4::before {
+            background: url('premium_photo-1681586126003-2a6d4ba943a2.jpeg') no-repeat center/cover;
+        }
+        #box6::before {
+            background: url('dev.png') no-repeat center/cover;
+        }
+        
+        .box--visible {
+            animation: slideInTop 1.2s ease-in-out;
+            opacity: 1;
+        }
+        
+        .box:hover {
+            color: black;
+            background-color: black; /* Turns the background black */
+            box-shadow: 0 0 40px rgb(126, 165, 255);
+            transition: 1.3s ease, color 1.3s ease;
+            border: 1px solid rgb(218, 218, 218);
+            filter: invert(7%);
+        }
+        
+        
+        .box.active {
+            background: rgb(9, 9, 3);
+            color: black;
+            border: none;
+            box-shadow: 0 0 40px rgb(126, 165, 255);
+            border: 1px solid rgb(218, 218, 218);
+            transform: rotateY(180deg);
+            filter: grayscale(100%);
+        }
+        
+        .c {
+            visibility: hidden;
+            color: rgb(50, 38, 38);
+            opacity: 0;
+            transform: translateY(30px) rotateY(180deg);
+            margin-top: 20px; /* Added margin */
+            padding: 10px;
+            text-align: justify;
+            transition: transform 1s ease, opacity 1.3s ease, visibility 0s 1.3s; /* visibility delay */
+        }
+        
+        .c.active {
+            opacity: 1;
+            color: white;
+            visibility: visible;
+            transition-delay: 0.5s; /* Delay visibility change */
+            transform: translateY(0);
+            transform: rotateY(180deg);
+        }
+        
+
+        
+        
+        .box a{
+            display: flex;
+            width: 40px;
+            height: 40px;
+            border: 1.3px solid white;
+            font-size: 20px;
+            border-radius: 50%;
+            color: lightblue;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        
+        }
+        
+        .box a:hover{
+            color: rgb(255, 255, 255);
+            box-shadow: 0 0 40px rgb(61, 63, 66);
+            background: black;
+            transform: scale(1.1);
+            filter: brightness(110%) drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+        
+        }
+        
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .c {
+            flex-grow: 1; /* Takes up remaining space between text and buttons */
+        }
+        
+        .pp {
+            display: flex;
+            justify-content: center;
+            margin-top: 27px;
+            gap: 10px;
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .box:hover .pp {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pp.active{
+            transform: rotateY(20deg);
+        
+        }
+
+
+    /*top*/
+    @import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+    @import url('https://fonts.cdnfonts.com/css/poppins');
+
+
+
+    
+    /* When the slider is hovered, dim all its items */
+    .banner .slider:hover .item {
+        filter: brightness(0.5);
+        transition: filter 0.5s ease-in-out;
+    }
+
+    /* When an individual item is hovered, override to brighten it */
+    .banner .slider .item:hover {
+        filter: brightness(1.1);
+        transition: filter 0.5s ease-in-out;
+
+    }
+
+    .banner .slider .item{
+        filter: brightness(1);
+        transition: filter 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    }
+
+    .banner .slider:hover {
+        animation-play-state: paused;
+    }
+
+    /* Stop rotation when .paused class is added (e.g. when clicked) */
+    .banner .slider.paused {
+        animation-play-state: paused;
+    }
+
+
+    /* Make the active item much brighter */
+    .banner .slider .item.active img {
+        box-shadow: 0 0 40px rgb(134, 59, 238);
+        filter: brightness(1);
+    }
+
+    /* When hovering (or when paused) and an item is active, dim all non-active items */
+    .banner .slider.paused .item:not(.active) img {
+        filter: brightness(0.6);
+    }
+    
+
+
+      .banner .slider .item.active {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+                   translateZ(350px) scale(1) translateY(var(--vertical-offset, 0px));
+        transition: transform 0.1s linear;
+        z-index: 100;
+    }
+
+
+
+    .banner .content{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(1400px, 100vw);
+        height: max-content;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+    
+
+    
+    .banner .content h2{
+        position: relative;
+        padding-bottom: 500px;
+        font-size: 3rem;
+        color: white;
+    }
+
+    .banner .content .you{
+        display: flex;
+        color: #ff1c1c;
+        font-size: 3rem;
+        padding-bottom: 470px;
+    }
+
+    .banner .content .model{
+        background-image: url(model.png);
+        width: 100%;
+        height: 80vh;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-size: auto 130%;
+        background-repeat: no-repeat;
+        background-position: top center;
+        z-index: 1;
+    }
+
+
+
+    /* Banner and Slider Container */
+    .banner {
+    width: 100%;
+    height: 90vh;
+    background-color: #000;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+      perspective: 1000px; /* Correct use of perspective */
+    }
+
+    .banner .slider {
+        position: absolute;
+        width: 160px;
+        height: 70px;
+        top: 26%;
+        left: calc(50% - 80px);
+        transform-style: preserve-3d;
+        animation: autoRun 55s linear infinite;
+        z-index: 200;
+    }
+
+    .item {
+
+        /* For a smooth transition when moving the element */
+        transition: transform 0.2s ease, opacity 0.5s ease;
+      }
+
+    /* Slider Items */
+    .banner .slider .item {
+        position: absolute;
+        inset: 0;
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+                    translateZ(350px);
+        transition: transform 2s ease, opacity 0.8s ease;
+    }
+
+    @keyframes autoRun {
+        from {
+            transform: perspective(200px) rotateX(100deg) rotateY(0deg);
+        }
+        to {
+            transform: perspective(1000px) rotateX(100deg) rotateY(360deg) ;
+        }
+    }
+
+
+    .banner .slider .item img {
+        width: 120%;
+        height: 28%;
+        object-fit: cover;
+    }
+
+/*shooting-star*/
+.shooting-star {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.shooting-star span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: rgb(22, 112, 215);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
+              0 0 0 8px rgba(255, 255, 255, 0.1), 
+              0 0 0 20px rgba(255, 255, 255, 0.1);
+  animation: shoot linear infinite;
+}
+
+
+
+.shooting-star span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 1px;
+  background: linear-gradient(90deg, white, transparent);
+  filter: blur(1px);
+}
+
+@keyframes shoot {
+  0% {
+    transform: rotate(315deg) translateX(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(315deg) translateX(-1000px);
+    opacity: 0;
+  }
+}
+
+.shooting-star span:nth-child(1) {
+  top: -10%;
+  left: 30%;
+  animation-delay: 3s;
+  animation-duration: 2.8s;
+}
+
+
+
+.shooting-star span:nth-child(2) {
+  top: 0%;
+  left: 45%;
+  animation-delay: 14s;
+  animation-duration: 2.4s;
+}
+
+
+
+
+.shooting-star span:nth-child(3) {
+  top: -10%;
+  left: 70%;
+  animation-delay: 10.3s;
+  animation-duration: 2.7s;
+}
+
+.shooting-star span:nth-child(4) {
+  top: 0%;
+  left: 95%;
+  animation-delay: 8.8s;
+  animation-duration: 2s;
+}
+
+
+.shooting-star span:nth-child(5) {
+  top: 20%;
+  left: 120%;
+  animation-delay: 5s;
+  animation-duration: 2.2s;
+}
+
+.still-star {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.still-star span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: rgb(167, 169, 171);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 
+              0 0 0 5px rgba(255, 255, 255, 0.1), 
+              0 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+
+.still-star span:nth-child(1) {
+  top: 15%;
+  left: 10%;
+
+}
+
+
+
+.still-star span:nth-child(2) {
+  top: 30%;
+  left: 25%;
+    animation: twinkle 5s infinite ease-in-out;
+    animation-delay: 5s;
+}
+
+
+
+
+.still-star span:nth-child(3) {
+  top: 35%;
+  left: 90%;
+    animation: twinkle 5s infinite ease-in-out;
+    animation-delay: 8s;
+}
+
+.still-star span:nth-child(4) {
+  top: 20%;
+  left: 75%;
+    animation: twinkle 5s infinite ease-in-out;
+    animation-delay: 2s;
+}
+
+
+.still-star span:nth-child(5) {
+  top: 9%;
+  left: 50%;
+      animation: twinkle 5s infinite ease-in-out;
+    animation-delay: 4s;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* Next Section */
+#nextSection {
+    position: relative;
+}
+
+.button-group {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+}
+
+#nextSection button {
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+#nextSection button:hover {
+        color: rgb(255, 255, 255);
+    background-color: black; /* Turns the background black */
+    box-shadow: 0 0 40px rgb(150, 82, 234);
+    transition: 0.5s ease, color 0.5s ease;
+    border: 1px solid rgb(218, 218, 218);
+    filter: invert(7%);
+    transform: scale(1.08);
+}
+
+#nextSection button:active {
+    transform: scale(0.96);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.dot-container {
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 9;
+}
+
+.dot-container .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.dot-container .dot.active {
+    background-color: #ffffff;
+    transform: scale(1.3);
+}
+
+
+    #nextSection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: black;
+        flex-direction: row;
+    }
+    
+    /* Container for text and image */
+    .container {
+        display: flex;
+        height: 100vh;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 90px;
+    }
+    
+    /* Text should be on the left side */
+    .text-container {
+        width: 100%;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: left;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Aligns text to the left */
+        height: 100%;
+        padding-left: 260px;
+        min-height: 300px;
+    }
+    
+    /* Ensures text appears in the correct place */
+    .text-item {
+        opacity: 0;
+        display: none;
+        transform: translateX(-50px); /* Moves text in from the left */
+        transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        position: absolute;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Active text effect */
+    @keyframes slideInTop {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      
+      .text-item.active {
+          opacity: 1;
+          display: block;
+          font-size: 0.9rem;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          color: #ffffff;
+          letter-spacing: 0.5px;
+          line-height: 1.6;
+          text-align: justify;
+          
+          /* Slide in from top */
+          animation: slideInTop 1.2s ease-in-out;
+      }
+    
+    /* Image should be on the right side */
+    .image-container {
+        padding-bottom: 400px;
+        position: relative;
+        width: 50%;
+    }
+    
+    .pic {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%) translateX(100%);
+        opacity: 0;
+        transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    }
+    
+    .pic img {
+        align-items: center;
+        width: 100%;
+        max-width: 600px;
+        border-radius: 10px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .text-container {
+        width: 40%;
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+        text-align: left;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%;
+        min-height: 300px;
+        padding-right: 60px;
+    }
+    
+    /* Fancy Text Effects */
+    .text-item {
+        opacity: 0;
+        display: none;
+        transform: translateX(-50px) scale(0.9);
+        transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        position: absolute;
+        width: 80%;
+        text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+        animation: fadeInText 1.2s ease-in-out;
+    }
+    
+    /* Glowing effect for text */
+    .text-item.active {
+        opacity: 1;
+        display: block;
+        transform: translateX(0) scale(1);
+    }
+    
+    /* === MOBILE RESPONSIVE FIX === */
+    @media (max-width: 768px) {
+        #nextSection {
+            flex-direction: column;
+            text-align: center;
+        }
+    
+        .container {
+            flex-direction: column;
+            padding: 0;
+        }
+    
+        .text-container {
+            width: 100%;
+            text-align: center;
+            padding-right: 0;
+            justify-content: center;
+        }
+    
+        .image-container {
+            width: 100%;
+        }
+    }
+
+    /* contact section*/
+    #contact{
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        background-color: black;
+        color: white;
+        padding: 20px;
+        height: 460px;
+        padding-top: 50px;
+    }
+
+    .form{
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        height: 280px;
+        padding-left: 300px;
+    }
+
+    .input{
+        padding: 12px;
+        margin: 7px;
+        width: 35%;
+        height: 40px;
+        font-size: 15px;
+        border: none;
+        outline: none;
+    }
+
+    #msg{
+        width: 35%;
+        height: 27%;
+        margin: 7px;
+        font-size: 15px;
+        border: none;
+        outline: none;
+    }
+
+    #send{
+        will-change: 10%;
+        margin: 30px;
+        border-radius: 10px;
+        font-size: 20px;
+        width: 90px;
+        height: 30px;
+        align-items: center;
+        border: none;
+        outline: none;
+    }
+    
+    #send:hover{
+        cursor: pointer;
+        background: lightblue;
+        box-shadow: 0 0 40px lightblue;
+        font-weight: bold;
+    }
+
+    .oi{
+        display: flex;
+        flex-direction: row;
+        height: 40px;
+        width: 95px;
+        justify-content: space-between;
+    }
+
+    .oi a{
+        display: flex;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: 1px solid white;
+        font-size: 17px;
+        border-radius: 50%;
+        color: lightblue;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to top, rgb(154, 217, 238) 50%, black 50%);
+        background-size: 100% 200%;
+        transition: all .7s;
+    }
+    .oi a:hover{
+        background-position: left bottom;
+        color: black;
+        border: none;
+        box-shadow: 0 0 40px rgb(126, 165, 255);
+    }
+}
