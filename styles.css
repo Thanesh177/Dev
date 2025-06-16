@@ -65,7 +65,7 @@ html,body {
   background: linear-gradient(135deg, #040603, #031e24);
 }
 .section:nth-child(2) {
-  background: linear-gradient(135deg, #281b37, #040105);
+  background: linear-gradient(135deg, #1c2b4c, #040105);
 }
 .section:nth-child(3) {
   background: linear-gradient(135deg, #040007, #2a0143);
@@ -109,29 +109,104 @@ h1 {
   font-size: 3rem;
   margin-bottom: 10px;
 }
-
-.about-me{
-  padding: 20px 200px;
+.section .content{
+  transition: none;
 }
-.liver p{
+
+
+
+.liver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 200px;
+  overflow: hidden;
+    animation: none;
+                     /* hide off-canvas text */
+}
+
+/* Animate the paragraph in with a slight delay */
+.liver p {
   position: relative;
-  padding: 50px 50px;
+  padding: 50px;
   font-size: 1.5rem;
   line-height: 1.2;
   text-align: justify;
+  border: 0 solid white;       /* start with no border */
+  border-radius: 12px;
   opacity: 0.8;
-  border: 0.2rem solid white;
+
+  /* 1) Slide‐in then 2) draw the border */
+
 }
 
+.liver.visible {
+  animation:
+    slideInBottomScale 1s ease-in-out both 1s,   /* your existing slide */
+    borderGrow          2s ease-in-out both 2s; /* border draw after 1.4s */}
 
+    .liver.visible p {
+  animation:
+    slideInBottomScale 1s ease-in-out both 0.4s, 
+    borderGrow          0.6s ease-in-out both 1.4s;
+}
+/* reuse your slide keyframes */
+@keyframes slideInBottomScale {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* new border animation */
+@keyframes borderGrow {
+  0% {
+    border-width: 0;
+    border-color: rgba(255,255,255,0);
+    box-shadow: 0 0 0 rgba(255,255,255,0);
+  }
+  30% {
+    border-width: 0.05rem;
+    border-color: rgba(255,255,255,0.5);
+    box-shadow: 0 0 5px rgba(255,255,255,0.2);
+  }
+  60% {
+    border-width: 0.1rem;
+    border-color: rgba(255,255,255,0.8);
+    box-shadow: 0 0 10px rgba(255,255,255,0.4);
+  }
+  100% {
+    border-width: 0.15rem;
+    border-color: #ffffff;
+    box-shadow: 0 0 15px rgba(255,255,255,0.6);
+  }
+}
+
+/* If you still want the container itself to animate up */
 #section2 .liver {
-  position: relative;
-  width: 100%;
-  padding: 0px 30px; /* padding for text */
-  /* set an explicit height, or let your image define it */
+  animation: slideInBottomScale 0.8s ease-in-out both;
 }
+
+/* Keyframes (same as you already have) */
+@keyframes slideInBottomScale {
+  from {
+    transform: translateY(100%) scale(5);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
 
 #section2 .about-img {
+  display: none;
   position: absolute;
   padding-bottom: 90px;
   left: 5%;
@@ -140,6 +215,9 @@ h1 {
   object-fit: cover;           /* crop/scale nicely */
   z-index: 1111;                  /* beneath the text */
 }
+
+
+
 
 /*────────────────────────────────────────────────────────────
   Scroll‐Indicator Dots (right side)
@@ -640,7 +718,11 @@ h1 {
   display: flex;    
   flex-direction: row;
   overflow: hidden;
+  background-image: url(blurred.jpeg);
+    background-attachment: fixed;
+
 }
+
 
 .drop{
   display: flex;
@@ -690,8 +772,8 @@ h1 {
 #section3 .cards-container .card {
   height: 500px;
   width: 150px;
-  margin:   0 0px;
-  border-radius: 1rem;
+  margin:   0 5px;
+  border-radius: 3rem;
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -700,7 +782,7 @@ h1 {
   transition: width .6s cubic-bezier(.28,-0.03,0,.99),
               box-shadow .3s ease,
               opacity .3s ease;
-  box-shadow: 0 10px 30px -5px rgba(190, 77, 219, 0.8);
+  box-shadow: 0 10px 30px -5px rgba(77, 160, 219, 0.8);
   opacity: 1;
 }
 
@@ -733,7 +815,7 @@ h1 {
 
 /* 6) Dim the non-hovered cards to draw focus */
 #section3 .cards-container .card:not(:hover) {
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
 /* 7) (Optional) Smooth out text and icon colors, keep them white */
@@ -828,6 +910,8 @@ h1 {
   /* 3. Measure (line length) */
   max-width: 60ch;  
 }
+
+
 
 /* 2) Stack the .pic wrappers absolutely, but full‐size */
 #nextSection .pic {
@@ -1186,11 +1270,14 @@ h1 {
   }
   
 
+.liver{
+  padding: 0px 20px;
+}
 
 #section2 .liver p{
   overflow: hidden;
   display: flex;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.2;
   text-align: justify;
   align-items: center;
@@ -1201,10 +1288,7 @@ h1 {
 
 }
 
-#section2 liver{
-  display: flex;
-  width: 100%;
-}
+
 
 #section2 .liver {
     width: 100%;

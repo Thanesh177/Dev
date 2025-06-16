@@ -404,3 +404,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const liver = document.querySelector('#section2 .liver');
+  if (!liver) return;
+
+  const obs = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        liver.classList.add('visible');
+        observer.unobserve(liver);  // only trigger once
+      }
+    });
+  }, {
+    threshold: 0.3  // fires when 30% of .liver is visible
+  });
+
+  obs.observe(liver);
+});
