@@ -1428,7 +1428,7 @@ h1 {
   }
 
   #section3 .cards-container .card {
-    width: 140%;
+    width: 150%;
     height: 80px;
       transition: height .6s cubic-bezier(.28,-0.03,0,.99),
               box-shadow .3s ease,
